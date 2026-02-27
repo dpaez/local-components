@@ -788,46 +788,32 @@ export const DarkMode: Story = {
 - React DevTools Profiler to check render times
 - Lighthouse CI for performance budget enforcement
 
-## Deployment Plan
+## Deployment Plan(FUTURE)
 
 ### Build Process
 
 ```bash
-# 1. Clean dist/
-rm -rf dist/
+# 1. Lint
+oxlint src/
 
-# 2. Type check
+# 2. Format check
+oxfmt --check src/
+
+# 3. Type check
 tsgo --noEmit
 
-# 3. Build library
+# 4. Build library
 bun build src/index.ts src/components/*/index.ts src/lib/*/index.ts \
   --format esm \
   --dts \
   --out-dir dist \
   --clean
-
-# 4. Copy package.json, README, LICENSE to dist/
-cp package.json dist/
-cp README.md dist/
-cp LICENSE dist/
-
-# 5. Lint
-oxlint dist/
-
-# 6. Format check
-oxfmt --check src/
-
-# 7. Verify exports
-node -e "import('./dist/index.js').then(m => console.log(Object.keys(m)))"
 ```
 
 ### Build Output Structure
 
 ```
 dist/
-├── package.json           # Package metadata with exports map
-├── index.js               # Barrel export (not tree-shakable)
-├── index.d.ts             # Barrel types
 ├── components/
 │   ├── hero/
 │   │   ├── index.js
