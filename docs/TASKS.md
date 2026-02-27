@@ -226,7 +226,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 6: Build Toggle (ThemeToggle) Component
+### Task 6: Build Toggle (ThemeToggle) Component ✅ COMPLETED
 
 **Overview**: Create the ThemeToggle component that consumes the theme context and allows users to switch between light and dark modes.
 
@@ -247,16 +247,16 @@ This document provides detailed implementation tasks for the local-components li
 - lucide-react (already in deps) OR custom SVGs
 
 **Acceptance Criteria**:
-- [ ] Variants: 'icon' | 'button' | 'switch'
-- [ ] showLabel prop for text label visibility
-- [ ] Consumes useTheme() from lib/theme-context
-- [ ] Displays sun icon when resolvedTheme is 'light'
-- [ ] Displays moon icon when resolvedTheme is 'dark'
-- [ ] Calls toggleTheme() on click
-- [ ] Keyboard accessible (Space/Enter)
-- [ ] ARIA attributes: aria-label, role="switch"
-- [ ] Respects prefers-reduced-motion
-- [ ] Smooth icon transitions (CSS)
+- [x] Variants: 'icon' | 'button' | 'switch'
+- [x] showLabel prop for text label visibility
+- [x] Consumes useTheme() from lib/theme-context
+- [x] Displays sun icon when resolvedTheme is 'light'
+- [x] Displays moon icon when resolvedTheme is 'dark'
+- [x] Calls toggleTheme() on click
+- [x] Keyboard accessible (Space/Enter)
+- [x] ARIA attributes: aria-label, role="switch"
+- [x] Respects prefers-reduced-motion
+- [x] Smooth icon transitions (CSS)
 
 **References**:
 - TDD.md: Toggle Component API (lines 372-382)
