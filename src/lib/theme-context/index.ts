@@ -5,4 +5,4 @@ export {
   type ResolvedTheme,
   type ThemeContextValue,
   type ThemeProviderProps,
-} from './theme-context';
+} from "./theme-context";
