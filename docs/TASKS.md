@@ -509,7 +509,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 12: Create Storybook Stories
+### Task 12: Create Storybook Stories ✅ COMPLETED
 
 **Overview**: Create .stories.tsx files for each component covering all variants and props.
 
@@ -527,14 +527,14 @@ This document provides detailed implementation tasks for the local-components li
 - All component tasks (4-10)
 
 **Acceptance Criteria**:
-- [ ] Default story for each component
-- [ ] Stories for all component variants
-- [ ] Controls for all props
-- [ ] Theme decorator applied to all stories
-- [ ] Dark mode story for each component
-- [ ] AsChild composition story (where applicable)
-- [ ] No console errors in any story
-- [ ] Responsive viewport testing enabled
+- [x] Default story for each component
+- [x] Stories for all component variants
+- [x] Controls for all props
+- [x] Theme decorator applied to all stories
+- [x] Dark mode story for each component
+- [x] AsChild composition story (where applicable)
+- [x] No console errors in any story
+- [x] Responsive viewport testing enabled
 
 **References**:
 - TDD.md: Example Story Structure (lines 735-760)
