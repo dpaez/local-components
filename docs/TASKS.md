@@ -420,7 +420,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 10: Build Hero Component
+### Task 10: Build Hero Component ✅ COMPLETED
 
 **Overview**: Create the Hero component for landing sections with background support, CTA button, and responsive text sizing.
 
@@ -438,15 +438,15 @@ This document provides detailed implementation tasks for the local-components li
 - Task 4 (Button component - for CTA)
 
 **Acceptance Criteria**:
-- [ ] title prop (required)
-- [ ] subtitle prop (optional)
-- [ ] cta prop: { label, href, variant }
-- [ ] background: { type: 'image' | 'color' | 'gradient', value }
-- [ ] alignment: 'left' | 'center' | 'right'
-- [ ] Variants: 'default', 'minimal', 'split', 'full-bleed'
-- [ ] Responsive text sizing (text-4xl → text-6xl)
-- [ ] asChild support for custom wrapper
-- [ ] Dark mode compatible backgrounds
+- [x] title prop (required)
+- [x] subtitle prop (optional)
+- [x] cta prop: { label, href, variant }
+- [x] background: { type: 'image' | 'color' | 'gradient', value }
+- [x] alignment: 'left' | 'center' | 'right'
+- [x] Variants: 'default', 'minimal', 'split', 'full-bleed'
+- [x] Responsive text sizing (text-4xl → text-6xl)
+- [x] asChild support for custom wrapper
+- [x] Dark mode compatible backgrounds
 
 **References**:
 - TDD.md: Hero Component API (lines 384-405)
