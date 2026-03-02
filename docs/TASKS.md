@@ -327,7 +327,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 8: Build Card Component
+### Task 8: Build Card Component ✅ COMPLETED
 
 **Overview**: Create the Card component for content containers with image support, hover states, and optional link wrapping.
 
@@ -345,16 +345,16 @@ This document provides detailed implementation tasks for the local-components li
 - Task 3 (package.json)
 
 **Acceptance Criteria**:
-- [ ] title prop (optional)
-- [ ] description prop (optional)
-- [ ] image prop with src and alt
-- [ ] footer prop for React.ReactNode
-- [ ] href prop for link wrapping
-- [ ] Variants: 'default', 'bordered', 'ghost', 'elevated'
-- [ ] Hover states for interactive cards
-- [ ] asChild support with Radix Slot
-- [ ] Handles overflow gracefully
-- [ ] Dark mode border/background adjustments
+- [x] title prop (optional)
+- [x] description prop (optional)
+- [x] image prop with src and alt
+- [x] footer prop for React.ReactNode
+- [x] href prop for link wrapping
+- [x] Variants: 'default', 'bordered', 'ghost', 'elevated'
+- [x] Hover states for interactive cards
+- [x] asChild support with Radix Slot
+- [x] Handles overflow gracefully
+- [x] Dark mode border/background adjustments
 
 **References**:
 - TDD.md: Card Component API (lines 407-424)
