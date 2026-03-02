@@ -119,7 +119,6 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
               alignment === 'right' && 'justify-end'
             )}>
               <Button 
-                asChild
                 variant={cta.variant === 'secondary' ? 'outline' : 'primary'}
               >
                 <a href={cta.href}>{cta.label}</a>
