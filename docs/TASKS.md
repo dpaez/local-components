@@ -375,7 +375,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 9: Build Section Component
+### Task 9: Build Section Component ✅ COMPLETED
 
 **Overview**: Create the Section component for logical content grouping with consistent spacing, anchor link support, and background variations.
 
@@ -392,14 +392,14 @@ This document provides detailed implementation tasks for the local-components li
 - Task 3 (package.json)
 
 **Acceptance Criteria**:
-- [ ] title prop (optional) with styling
-- [ ] subtitle prop (optional)
-- [ ] id prop for anchor links (#section-id)
-- [ ] background: 'default' | 'alternate' | 'primary' | 'accent'
-- [ ] spacing: 'compact' | 'default' | 'spaced'
-- [ ] Semantic section element
-- [ ] Consistent padding (py-12, py-16, py-24 based on spacing)
-- [ ] Respects theme (light/dark backgrounds)
+- [x] title prop (optional) with styling
+- [x] subtitle prop (optional)
+- [x] id prop for anchor links (#section-id)
+- [x] background: 'default' | 'alternate' | 'primary' | 'accent'
+- [x] spacing: 'compact' | 'default' | 'spaced'
+- [x] Semantic section element
+- [x] Consistent padding (py-12, py-16, py-24 based on spacing)
+- [x] Respects theme (light/dark backgrounds)
 
 **References**:
 - TDD.md: Section Component API (lines 454-467)
@@ -465,56 +465,9 @@ This document provides detailed implementation tasks for the local-components li
 - CTA can use Button component
 - Text should have text-shadow or contrasting background for readability
 
----
+## Phase 4: Storybook Setup & Stories
 
-## Phase 4: Exports & Barrel Files
-
-### Task 11: Create Barrel Exports
-
-**Overview**: Create index.ts barrel files for each component directory and a main barrel export for convenience imports.
-
-**Deliverable**:
-- `src/components/button/index.ts` - exports Button, ButtonProps, buttonVariants
-- `src/components/layout/index.ts` - exports Layout, LayoutProps
-- `src/components/toggle/index.ts` - exports Toggle, ToggleProps
-- `src/components/typography/index.ts` - exports all typography components
-- `src/components/card/index.ts` - exports Card, CardProps
-- `src/components/section/index.ts` - exports Section, SectionProps
-- `src/components/hero/index.ts` - exports Hero, HeroProps
-- `src/lib/theme-context/index.ts` - exports ThemeProvider, useTheme, types
-- `src/lib/utils/index.ts` - exports cn (reorganize from utils.ts)
-- Update `src/index.ts` to be a barrel export (currently a server)
-
-**Dependencies**:
-- All component tasks (4-10)
-
-**Acceptance Criteria**:
-- [ ] Each component has index.ts with type exports
-- [ ] Named exports only (no default exports)
-- [ ] Type exports use `export type` syntax
-- [ ] Main src/index.ts exports all components
-- [ ] lib/utils is reorganized with index.ts
-- [ ] All exports follow pattern: export { Component, type ComponentProps }
-
-**References**:
-- TDD.md: Public API Surface (lines 301-353)
-- TDD.md: Import Patterns (lines 159-172)
-- Skill: fullstack-skill/rules/typescript-strict.md (verbatimModuleSyntax)
-
-**Out of Scope**:
-- Deep path exports beyond components/* and lib/*
-- CJS exports (ESM only)
-
-**Tips**:
-- Use `export type` for type-only exports (helps with verbatimModuleSyntax)
-- Barrel exports are for convenience, but tree-shaking works on subpath imports
-- Main index.ts should re-export from component index files
-
----
-
-## Phase 5: Storybook Setup & Stories
-
-### Task 12: Setup Storybook
+### Task 11: Setup Storybook
 
 **Overview**: Configure Storybook 10+ for component documentation with theme switching support.
 
@@ -556,7 +509,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 13: Create Storybook Stories
+### Task 12: Create Storybook Stories
 
 **Overview**: Create .stories.tsx files for each component covering all variants and props.
 
@@ -570,7 +523,7 @@ This document provides detailed implementation tasks for the local-components li
 - `src/components/hero/hero.stories.tsx` - Hero variants
 
 **Dependencies**:
-- Task 12 (Storybook setup)
+- Task 11 (Storybook setup)
 - All component tasks (4-10)
 
 **Acceptance Criteria**:
@@ -602,9 +555,9 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-## Phase 6: Tooling & Build
+## Phase 5: Tooling & Build
 
-### Task 14: Configure OXC Tooling
+### Task 13: Configure OXC Tooling
 
 **Overview**: Setup oxlint and oxfmt for fast Rust-based linting and formatting.
 
@@ -647,7 +600,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 15: Build System with Bun
+### Task 14: Build System with Bun
 
 **Overview**: Create the Bun build system for ESM-only library distribution with type declarations.
 
@@ -659,7 +612,6 @@ This document provides detailed implementation tasks for the local-components li
 
 **Dependencies**:
 - Task 3 (Package.json exports)
-- Task 11 (Barrel exports)
 - All components
 
 **Acceptance Criteria**:
@@ -691,7 +643,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
-### Task 16: Create README Documentation
+### Task 15: Create README Documentation
 
 **Overview**: Write comprehensive README with installation, usage, theme configuration, and component examples.
 
@@ -708,7 +660,7 @@ This document provides detailed implementation tasks for the local-components li
 
 **Dependencies**:
 - All component tasks completed
-- Task 12 (Storybook - mention it)
+- Task 11 (Storybook - mention it)
 
 **Acceptance Criteria**:
 - [ ] Installation: `npm install local-components` (for future)
@@ -742,23 +694,14 @@ This document provides detailed implementation tasks for the local-components li
 
 ## Summary
 
-**Total Tasks**: 16
+**Total Tasks**: 15
 
 **Phase Breakdown**:
 - Phase 1 (Foundation): 3 tasks (config, theme, package)
 - Phase 2 (High Priority Components): 3 tasks (Button, Layout, Toggle)
 - Phase 3 (Medium Priority Components): 4 tasks (Typography, Card, Section, Hero)
-- Phase 4 (Exports): 1 task
-- Phase 5 (Storybook): 2 tasks
-- Phase 6 (Tooling & Build): 3 tasks
-
-**Estimated Completion**:
-- Phase 1: Day 1
-- Phase 2: Days 2-3
-- Phase 3: Days 4-6
-- Phase 4: Day 7
-- Phase 5: Days 8-9
-- Phase 6: Day 10
+- Phase 4 (Storybook): 2 tasks
+- Phase 5 (Tooling & Build): 3 tasks
 
 **Dependencies Graph**:
 ```
@@ -766,7 +709,7 @@ Task 1 (Tailwind) ──────┬─────────────�
                        │                                  │
 Task 2 (Theme) ────────┼───> Task 5 (Layout) ────────────┤
                        │           │                      │
-Task 3 (Package) ────────┼───────────┼───> Task 11 (Barrels) > Task 12-16
+Task 3 (Package) ────────┼───────────┼───> Task 12-16
                        │           │                      │
                        ├───> Task 4 (Button) ─────────────┤
                        │           │                      │
@@ -778,13 +721,13 @@ Task 3 (Package) ────────┼───────────┼
                        └───> Task 10 (Hero) ────────────────┘
 ```
 
-**Critical Path**: 1 → 2 → 5 → 11 → 12 → 15
+**Critical Path**: 1 → 2 → 5 → 12 → 15
 
 **Success Criteria (from PRD)**:
 1. All 7 components implemented with React and TypeScript ✅ (Tasks 4-10)
-2. Storybook documentation complete ✅ (Tasks 12-13)
+2. Storybook documentation complete ✅ (Tasks 11-12)
 3. Theme system working ✅ (Tasks 2, 5, 6)
-4. oxlint and oxfmt configured ✅ (Task 14)
+4. oxlint and oxfmt configured ✅ (Task 13)
 5. Components work on dpaez.github.io ✅ (Future deployment)
-6. README with installation and usage ✅ (Task 16)
-7. Design system documented ✅ (PRD + This doc)
+6. README with installation and usage ✅ (Task 15)
+7. Design system documented ✅ (PRD + This doc)a
