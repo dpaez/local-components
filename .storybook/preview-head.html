@@ -1,0 +1,7 @@
+<script>
+  // Prevent flash of wrong theme before Storybook loads
+  const theme = new URL(window.location.href).searchParams.get('globals')?.match(/theme:([^;]+)/)?.[1]
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark')
+  }
+</script>

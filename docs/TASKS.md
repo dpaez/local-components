@@ -467,7 +467,7 @@ This document provides detailed implementation tasks for the local-components li
 
 ## Phase 4: Storybook Setup & Stories
 
-### Task 11: Setup Storybook
+### Task 11: Setup Storybook ✅ COMPLETED
 
 **Overview**: Configure Storybook 10+ for component documentation with theme switching support.
 
@@ -483,14 +483,14 @@ This document provides detailed implementation tasks for the local-components li
 - Task 2 (Theme Context)
 
 **Acceptance Criteria**:
-- [ ] Storybook 10+ configured with @storybook/react-vite
-- [ ] @storybook/addon-themes for theme switching
-- [ ] @storybook/addon-essentials included
-- [ ] TypeScript support configured
-- [ ] Theme decorator applies dark/light class
-- [ ] All stories support theme toggle
-- [ ] Build works: `bunx storybook build`
-- [ ] Dev server works: `bunx storybook dev`
+- [x] Storybook 10+ configured with @storybook/react-vite
+- [x] @storybook/addon-themes for theme switching
+- [x] @storybook/addon-essentials included
+- [x] TypeScript support configured
+- [x] Theme decorator applies dark/light class
+- [x] All stories support theme toggle
+- [x] Build works: `bunx storybook build`
+- [x] Dev server works: `bunx storybook dev`
 
 **References**:
 - TDD.md: Storybook Structure (lines 1055-1069)
