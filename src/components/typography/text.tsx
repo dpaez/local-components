@@ -40,17 +40,17 @@ type TextElement = "p" | "span" | "div" | "label";
 
 export interface TextProps
   extends
-    Omit<React.HTMLAttributes<HTMLParagraphElement>, "align">,
+    Omit<React.HTMLAttributes<HTMLElement>, "align" | "color">,
     VariantProps<typeof textVariants> {
   as?: TextElement;
 }
 
-const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
+const Text = React.forwardRef<HTMLElement, TextProps>(
   ({ className, as: Component = "p", size, weight, color, align, children, ...props }, ref) => {
     return (
       <Component
         data-slot="text"
-        ref={ref}
+        ref={ref as any}
         className={cn(textVariants({ size, weight, color, align, className }))}
         {...props}
       >

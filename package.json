@@ -8,13 +8,14 @@
     "dev": "bun --hot src/index.ts",
     "start": "NODE_ENV=production bun src/index.ts",
     "build": "bun run build.ts",
-    "lint": "oxlint src/",
-    "lint:fix": "oxlint src/ --fix",
-    "format": "oxfmt src/",
-    "format:check": "oxfmt --check src/",
+    "lint": "NAPI_RS_FORCE_WASI=1 oxlint -c oxlint.json src/",
+    "lint:fix": "NAPI_RS_FORCE_WASI=1 oxlint -c oxlint.json src/ --fix",
+    "format": "oxfmt -c oxfmt.json src/",
+    "format:check": "oxfmt -c oxfmt.json --check src/",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build:lib": "bun run build-lib.ts"
   },
   "exports": {
     "./components/button": {
@@ -74,6 +75,7 @@
     "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript/native-preview": "^7.0.0-dev.20260303.1",
     "bun-plugin-tailwind": "^0.1.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.1",

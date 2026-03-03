@@ -614,14 +614,14 @@ This document provides detailed implementation tasks for the local-components li
 - All components
 
 **Acceptance Criteria**:
-- [ ] Build script outputs to `dist/`
-- [ ] ESM format only (`--format esm`)
-- [ ] Type declarations generated (`.d.ts` files)
-- [ ] Individual component builds tree-shakeable
-- [ ] Maintains directory structure: dist/components/*, dist/lib/*
-- [ ] Build completes in <30s
-- [ ] No build errors
-- [ ] Output files are valid JavaScript
+- [x] Build script outputs to `dist/`
+- [x] ESM format only (`--format esm`)
+- [x] Type declarations generated (`.d.ts` files)
+- [x] Individual component builds tree-shakeable
+- [x] Maintains directory structure: dist/components/*, dist/lib/*
+- [x] Build completes in <30s
+- [x] No build errors
+- [x] Output files are valid JavaScript
 
 **References**:
 - TDD.md: Deployment Plan (lines 791-822)

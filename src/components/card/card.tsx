@@ -31,7 +31,7 @@ export interface CardProps
   asChild?: boolean;
 }
 
-const Card = React.forwardRef<HTMLElement, CardProps>(
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (
     {
       className,
@@ -78,7 +78,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
             "block hover:bg-accent/50 transition-colors cursor-pointer",
             className,
           )}
-          ref={ref as React.RefObject<HTMLAnchorElement>}
+          ref={ref as unknown as React.RefObject<HTMLAnchorElement>}
           {...props}
         >
           {cardContent}
