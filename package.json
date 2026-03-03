@@ -1,0 +1,115 @@
+{
+  "name": "local-components",
+  "version": "0.1.0",
+  "description": "A curated React component library designed for personal sites and portfolio pages",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "build": "bun run build.ts",
+    "lint": "NAPI_RS_FORCE_WASI=1 oxlint -c oxlint.json src/",
+    "lint:fix": "NAPI_RS_FORCE_WASI=1 oxlint -c oxlint.json src/ --fix",
+    "format": "oxfmt -c oxfmt.json src/",
+    "format:check": "oxfmt -c oxfmt.json --check src/",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "prepare": "husky",
+    "build:lib": "bun run build-lib.ts"
+  },
+  "exports": {
+    "./components/button": {
+      "import": "./dist/components/button/index.js",
+      "types": "./dist/components/button/index.d.ts"
+    },
+    "./components/layout": {
+      "import": "./dist/components/layout/index.js",
+      "types": "./dist/components/layout/index.d.ts"
+    },
+    "./components/toggle": {
+      "import": "./dist/components/toggle/index.js",
+      "types": "./dist/components/toggle/index.d.ts"
+    },
+    "./components/typography": {
+      "import": "./dist/components/typography/index.js",
+      "types": "./dist/components/typography/index.d.ts"
+    },
+    "./components/card": {
+      "import": "./dist/components/card/index.js",
+      "types": "./dist/components/card/index.d.ts"
+    },
+    "./components/section": {
+      "import": "./dist/components/section/index.js",
+      "types": "./dist/components/section/index.d.ts"
+    },
+    "./components/hero": {
+      "import": "./dist/components/hero/index.js",
+      "types": "./dist/components/hero/index.d.ts"
+    },
+    "./lib/theme-context": {
+      "import": "./dist/lib/theme-context/index.js",
+      "types": "./dist/lib/theme-context/index.d.ts"
+    },
+    "./lib/utils": {
+      "import": "./dist/lib/utils/index.js",
+      "types": "./dist/lib/utils/index.d.ts"
+    },
+    "./styles/globals.css": "./styles/globals.css"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-select": "^2.2.6",
+    "@storybook/addon-themes": "^10.2.14",
+    "@storybook/react-vite": "^10.2.14",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@typescript/native-preview": "^7.0.0-dev.20260303.1",
+    "bun-plugin-tailwind": "^0.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.1",
+    "lucide-react": "^0.545.0",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
+    "oxlint-tsgolint": "^0.15.0",
+    "storybook": "^10.2.14",
+    "tailwindcss": "^4.1.11",
+    "tw-animate-css": "^1.4.0",
+    "vite-tsconfig-paths": "^6.1.1"
+  },
+  "files": [
+    "dist",
+    "styles"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dpaez/local-components.git"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "tailwind",
+    "typescript",
+    "personal-site",
+    "portfolio"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,mjs,astro,json}": "bun lint:fix"
+  }
+}

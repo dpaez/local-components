@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Base colors: off-white and off-black */
+  --background: #efefef;
+  --foreground: #121212;
+  
+  /* Card uses same as background by default */
+  --card: #efefef;
+  --card-foreground: #121212;
+  
+  /* Popover */
+  --popover: #efefef;
+  --popover-foreground: #121212;
+  
+  /* Primary: Deep blue/purple - oklch(0.5007 0.2524 272.54) */
+  --primary: oklch(0.5007 0.2524 272.54);
+  --primary-foreground: #efefef;
+  
+  /* Secondary: subtle gray */
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: #121212;
+  
+  /* Muted: for secondary text */
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  
+  /* Accent: Warm orange/coral - oklch(0.7134 0.1799 47.45) */
+  --accent: oklch(0.7134 0.1799 47.45);
+  --accent-foreground: #121212;
+  
+  /* Destructive: error states */
+  --destructive: oklch(0.577 0.245 27.325);
+  
+  /* Border and input */
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  
+  /* Focus ring */
+  --ring: oklch(0.546 0.245 262.881);
+  
+  /* Border radius */
+  --radius: 0.25rem;
+}
+
+.dark {
+  /* Base colors: off-black and off-white */
+  --background: #121212;
+  --foreground: #efefef;
+  
+  /* Card uses same as background by default */
+  --card: #121212;
+  --card-foreground: #efefef;
+  
+  /* Popover */
+  --popover: #121212;
+  --popover-foreground: #efefef;
+  
+  /* Primary: Deep blue/purple (same hue, adjusted for dark mode) */
+  --primary: oklch(0.5007 0.2524 272.54);
+  --primary-foreground: #efefef;
+  
+  /* Secondary: subtle gray for dark mode */
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: #efefef;
+  
+  /* Muted: for secondary text in dark mode */
+  --muted: oklch(0.267 0.004 286.325);
+  --muted-foreground: oklch(0.708 0.016 285.951);
+  
+  /* Accent: Warm orange/coral (same hue) */
+  --accent: oklch(0.7134 0.1799 47.45);
+  --accent-foreground: #121212;
+  
+  /* Destructive: error states */
+  --destructive: oklch(0.704 0.191 22.216);
+  
+  /* Border and input for dark mode */
+  --border: oklch(0.271 0.004 285.805);
+  --input: oklch(0.271 0.004 285.805);
+  
+  /* Focus ring */
+  --ring: oklch(0.556 0.245 262.881);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
