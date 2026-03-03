@@ -662,15 +662,15 @@ This document provides detailed implementation tasks for the local-components li
 - Task 11 (Storybook - mention it)
 
 **Acceptance Criteria**:
-- [ ] Installation: `npm install local-components` (for future)
+- [x] Installation: `npm install local-components` (for future)
   - And local: clone and build
-- [ ] Quick start code example
-- [ ] Theme setup guide (Layout + Toggle)
-- [ ] Component usage examples (2-3 per component)
-- [ ] Tree-shaking import pattern documented
-- [ ] Tailwind configuration requirements
-- [ ] Storybook link/reference
-- [ ] Clear and concise language
+- [x] Quick start code example
+- [x] Theme setup guide (Layout + Toggle)
+- [x] Component usage examples (2-3 per component)
+- [x] Tree-shaking import pattern documented
+- [x] Tailwind configuration requirements
+- [x] Storybook link/reference
+- [x] Clear and concise language
 
 **References**:
 - PRD.md: Version 1.0 Success Criteria (lines 363-371)
@@ -728,5 +728,5 @@ Task 3 (Package) ────────┼───────────┼
 3. Theme system working ✅ (Tasks 2, 5, 6)
 4. oxlint and oxfmt configured (Task 13)
 5. Components work on dpaez.github.io (Future deployment)
-6. README with installation and usage (Task 15)
+6. README with installation and usage ✅ (Task 15)
 7. Design system documented ✅ (PRD + This doc)

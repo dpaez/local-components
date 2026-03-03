@@ -22,6 +22,7 @@
   "rules": {
     "no-debugger": "error",
     "no-duplicate-imports": "error",
-    "prefer-const": "warn"
+    "prefer-const": "warn",
+    "oxc/no-barrel-file": "error"
   }
 }
