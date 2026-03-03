@@ -571,16 +571,15 @@ This document provides detailed implementation tasks for the local-components li
 - All source code tasks completed
 
 **Acceptance Criteria**:
-- [ ] oxlint configured and passing
-- [ ] oxfmt configured with consistent style
-- [ ] Package.json scripts:
+- [x] oxlint configured and passing
+- [x] oxfmt configured with consistent style
+- [x] Package.json scripts:
   - "lint": "oxlint src/"
   - "lint:fix": "oxlint src/ --fix"
   - "format": "oxfmt src/"
   - "format:check": "oxfmt --check src/"
-- [ ] No lint errors in src/
-- [ ] All files formatted consistently
-- [ ] Experimental import sorting enabled (if available)
+- [x] No lint errors in src/
+- [x] All files formatted consistently
 
 **References**:
 - TDD.md: Non-Functional Requirements (lines 75-80)
@@ -709,7 +708,7 @@ Task 1 (Tailwind) ──────┬─────────────�
                        │                                  │
 Task 2 (Theme) ────────┼───> Task 5 (Layout) ────────────┤
                        │           │                      │
-Task 3 (Package) ────────┼───────────┼───> Task 12-16
+Task 3 (Package) ────────┼───────────┼───> Task 12-15
                        │           │                      │
                        ├───> Task 4 (Button) ─────────────┤
                        │           │                      │
@@ -727,7 +726,7 @@ Task 3 (Package) ────────┼───────────┼
 1. All 7 components implemented with React and TypeScript ✅ (Tasks 4-10)
 2. Storybook documentation complete ✅ (Tasks 11-12)
 3. Theme system working ✅ (Tasks 2, 5, 6)
-4. oxlint and oxfmt configured ✅ (Task 13)
-5. Components work on dpaez.github.io ✅ (Future deployment)
-6. README with installation and usage ✅ (Task 15)
-7. Design system documented ✅ (PRD + This doc)a
+4. oxlint and oxfmt configured (Task 13)
+5. Components work on dpaez.github.io (Future deployment)
+6. README with installation and usage (Task 15)
+7. Design system documented ✅ (PRD + This doc)

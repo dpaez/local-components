@@ -1,33 +1,34 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Layout } from './layout'
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Layout } from "./layout";
 
 const meta: Meta<typeof Layout> = {
-  title: 'Components/Layout',
+  title: "Components/Layout",
   component: Layout,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   argTypes: {
     maxWidth: {
-      control: 'select',
-      options: ['sm', 'md', 'lg', 'xl', 'full'],
+      control: "select",
+      options: ["sm", "md", "lg", "xl", "full"],
     },
     padding: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
+      control: "select",
+      options: ["none", "sm", "md", "lg"],
     },
     centered: {
-      control: 'boolean',
+      control: "boolean",
     },
     defaultTheme: {
-      control: 'select',
-      options: ['light', 'dark', 'system'],
+      control: "select",
+      options: ["light", "dark", "system"],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Layout>
+export default meta;
+type Story = StoryObj<typeof Layout>;
 
 export const Default: Story = {
   args: {
@@ -37,11 +38,11 @@ export const Default: Story = {
         <p>This layout uses the default settings.</p>
       </div>
     ),
-    maxWidth: 'lg',
-    padding: 'md',
+    maxWidth: "lg",
+    padding: "md",
     centered: true,
   },
-}
+};
 
 export const FullWidth: Story = {
   args: {
@@ -51,10 +52,10 @@ export const FullWidth: Story = {
         <p>This layout spans the full width.</p>
       </div>
     ),
-    maxWidth: 'full',
-    padding: 'lg',
+    maxWidth: "full",
+    padding: "lg",
   },
-}
+};
 
 export const Small: Story = {
   args: {
@@ -64,11 +65,11 @@ export const Small: Story = {
         <p>This layout has a small max-width.</p>
       </div>
     ),
-    maxWidth: 'sm',
-    padding: 'md',
+    maxWidth: "sm",
+    padding: "md",
     centered: true,
   },
-}
+};
 
 export const WithDarkTheme: Story = {
   args: {
@@ -78,9 +79,9 @@ export const WithDarkTheme: Story = {
         <p>This layout defaults to dark theme.</p>
       </div>
     ),
-    maxWidth: 'md',
-    padding: 'md',
+    maxWidth: "md",
+    padding: "md",
     centered: true,
-    defaultTheme: 'dark',
+    defaultTheme: "dark",
   },
-}
+};

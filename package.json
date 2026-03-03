@@ -13,7 +13,8 @@
     "format": "oxfmt src/",
     "format:check": "oxfmt --check src/",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "prepare": "husky"
   },
   "exports": {
     "./components/button": {
@@ -74,9 +75,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "bun-plugin-tailwind": "^0.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.1",
     "lucide-react": "^0.545.0",
-    "oxfmt": "^0.35.0",
-    "oxlint": "^1.50.0",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
     "oxlint-tsgolint": "^0.15.0",
     "storybook": "^10.2.14",
     "tailwindcss": "^4.1.11",
@@ -103,5 +106,8 @@
     "personal-site",
     "portfolio"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,mjs,astro,json}": "bun lint:fix"
+  }
 }

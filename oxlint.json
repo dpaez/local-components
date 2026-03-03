@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "import",
+    "typescript",
+    "react",
+    "jsx-a11y",
+    "promise",
+    "node",
+    "unicorn",
+    "oxc"
+  ],
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": [
+    "dist/**",
+    "storybook-static/**",
+    "node_modules/**"
+  ],
+  "rules": {
+    "no-debugger": "error",
+    "no-duplicate-imports": "error",
+    "prefer-const": "warn"
+  }
+}

@@ -1,8 +1,9 @@
-import * as React from "react";
-import { Sun, Moon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import { Sun, Moon } from "lucide-react";
+import * as React from "react";
+
 import { useTheme } from "@/lib/theme-context";
+import { cn } from "@/lib/utils";
 
 const toggleVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
