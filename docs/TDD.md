@@ -35,11 +35,30 @@ The design focuses on:
 
 ### Design Philosophy
 
-The library follows **shadcn/ui patterns** but with key differences:
-- **Self-contained**: Not a registry of copy-paste components, but a proper npm-installable package
-- **Pre-built components**: Not unstyled primitives, but opinionated styled components
-- **Minimal scope**: 7 components covering 80% of personal site needs, not an exhaustive component library
-- **Composition-first**: Support `asChild` pattern for flexible component usage
+The library extends **shadcn/ui** as its foundational layer, then builds custom components on top:
+
+**Foundation Layer (shadcn/ui)**:
+- Use shadcn/ui CLI to install base components (`npx shadcn@latest add [component]`)
+- Inherit Radix UI primitives for accessibility and keyboard navigation  
+- Maintain full customization via CSS variables and Tailwind classes
+- Follow shadcn/ui patterns but provide npm-installable convenience
+
+**Extension Layer (local-components)**:
+- Build domain-specific components on top of shadcn/ui (Hero, Section, Layout patterns)
+- Apply premium design patterns using our design-taste-frontend skill (no AI purple, proper typography)
+- Implement advanced interactions (liquid glass, magnetic effects, micro-animations)
+- Enforce brand consistency across all components
+
+**Key Approach**:
+- Extend shadcn/ui first (see [customization guide](https://ui.spectrumhq.in/blog/shadcn-customization-guide))
+- Add local variations for personal site use cases
+- Apply design skills for premium UI/UX
+- Support `asChild` pattern for flexible composition
+
+**Design Skills Applied**:
+- design-taste-frontend: Premium UI patterns, anti-slop enforcement
+- shadcn-ui: Component integration best practices
+- impeccable: Code quality and polish
 
 ### Prior Art
 
@@ -92,6 +111,7 @@ Both projects demonstrate minimalistic aesthetics with off-black/off-white found
 - Must render sun icon in light mode, moon icon in dark mode
 - Must be keyboard accessible (Space/Enter to toggle)
 - Must respect `prefers-reduced-motion`
+- **Switch variant must use shadcn/ui Switch component** for proper accessibility and behavior
 
 #### Hero
 - Must support background image, color, or gradient
@@ -116,6 +136,13 @@ Both projects demonstrate minimalistic aesthetics with off-black/off-white found
 - Must render semantic HTML (h1-h6, p, span)
 - Must support polymorphic `as` prop
 - Must have responsive size variants
+
+#### Badge
+- Must display as inline tag/label element
+- Must support multiple variants (default, secondary, outline, destructive)
+- Must support optional icon or dismissible button
+- Must be accessible (proper aria-label for dismissible variant)
+- Must use shadcn/ui Badge as foundation
 
 #### Section
 - Must support anchor links (id prop)
@@ -543,60 +570,165 @@ interface ThemeProviderProps {
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius: var(--radius);
-}
-
 :root {
-  /* Base colors: off-white and off-black */
-  --background: #efefef;
-  --foreground: #121212;
-  
-  /* Primary: Deep blue/purple */
-  --primary: oklch(0.5007 0.2524 272.54);
-  --primary-foreground: #efefef;
-  
-  /* Accent: Warm orange/coral */
-  --accent: oklch(0.7134 0.1799 47.45);
-  --accent-foreground: #121212;
-  
-  /* Semantic colors */
-  --card: #efefef;
-  --card-foreground: #121212;
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.546 0.245 262.881);
-  --radius: 0.25rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.1450 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.1450 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.1450 0 0);
+  --primary: oklch(0.5515 0.2467 272.5400);
+  --primary-foreground: oklch(0.9850 0 0);
+  --secondary: oklch(0.7134 0.1799 47.4500);
+  --secondary-foreground: oklch(0.9850 0 0);
+  --muted: oklch(0.9700 0 0);
+  --muted-foreground: oklch(0.5560 0 0);
+  --accent: oklch(0.8920 0.0373 218.0047);
+  --accent-foreground: oklch(0.2050 0 0);
+  --destructive: oklch(0.5770 0.2450 27.3250);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9220 0 0);
+  --input: oklch(0.9220 0 0);
+  --ring: oklch(0.7080 0 0);
+  --chart-1: oklch(0.8100 0.1000 252);
+  --chart-2: oklch(0.6200 0.1900 260);
+  --chart-3: oklch(0.5500 0.2200 263);
+  --chart-4: oklch(0.4900 0.2200 264);
+  --chart-5: oklch(0.4200 0.1800 266);
+  --sidebar: oklch(0.9850 0 0);
+  --sidebar-foreground: oklch(0.1450 0 0);
+  --sidebar-primary: oklch(0.2050 0 0);
+  --sidebar-primary-foreground: oklch(0.9850 0 0);
+  --sidebar-accent: oklch(0.9700 0 0);
+  --sidebar-accent-foreground: oklch(0.2050 0 0);
+  --sidebar-border: oklch(0.9220 0 0);
+  --sidebar-ring: oklch(0.7080 0 0);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius: 0.625rem;
+  --shadow-x: 0;
+  --shadow-y: 1px;
+  --shadow-blur: 3px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.1;
+  --shadow-color: oklch(0 0 0);
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
 }
 
 .dark {
-  --background: #121212;
-  --foreground: #efefef;
-  --primary: oklch(0.5007 0.2524 272.54);
-  --primary-foreground: #efefef;
-  --accent: oklch(0.7134 0.1799 47.45);
-  --accent-foreground: #121212;
-  --card: #121212;
-  --card-foreground: #efefef;
-  --muted: oklch(0.267 0.004 286.325);
-  --muted-foreground: oklch(0.708 0.016 285.951);
-  --border: oklch(0.271 0.004 285.805);
-  --input: oklch(0.271 0.004 285.805);
+  --background: oklch(0.5515 0.2467 272.5400);
+  --foreground: oklch(0.9850 0 0);
+  --card: oklch(0.4800 0.2467 272.5400);
+  --card-foreground: oklch(0.9850 0 0);
+  --popover: oklch(0.4000 0.1200 272.5400);
+  --popover-foreground: oklch(0.9850 0 0);
+  --primary: oklch(0.9220 0 0);
+  --primary-foreground: oklch(0.4000 0.2467 272.5400);
+  --secondary: oklch(0.6600 0.1799 47.4500);
+  --secondary-foreground: oklch(0.9850 0 0);
+  --muted: oklch(0.4000 0.1200 272.5400);
+  --muted-foreground: oklch(0.7080 0 0);
+  --accent: oklch(0.3900 0.2467 272.5400);
+  --accent-foreground: oklch(0.9850 0 0);
+  --destructive: oklch(0.5770 0.2450 27.3250);
+  --destructive-foreground: oklch(0.9850 0 0);
+  --border: oklch(0.6600 0.0900 272.5400);
+  --input: oklch(0.4000 0.0300 272.5400);
+  --ring: oklch(0.6600 0.1800 272.5400);
+  --chart-1: oklch(0.8100 0.1000 252);
+  --chart-2: oklch(0.6200 0.1900 260);
+  --chart-3: oklch(0.5500 0.2200 263);
+  --chart-4: oklch(0.4900 0.2200 264);
+  --chart-5: oklch(0.4200 0.1800 266);
+  --sidebar: oklch(0.2050 0 0);
+  --sidebar-foreground: oklch(0.9850 0 0);
+  --sidebar-primary: oklch(0.4880 0.2430 264.3760);
+  --sidebar-primary-foreground: oklch(0.9850 0 0);
+  --sidebar-accent: oklch(0.2690 0 0);
+  --sidebar-accent-foreground: oklch(0.9850 0 0);
+  --sidebar-border: oklch(0.2750 0 0);
+  --sidebar-ring: oklch(0.4390 0 0);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius: 0.625rem;
+  --shadow-x: 0;
+  --shadow-y: 1px;
+  --shadow-blur: 3px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.1;
+  --shadow-color: oklch(0 0 0);
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
 }
 
 @layer base {
@@ -605,6 +737,10 @@ interface ThemeProviderProps {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer !important;
   }
 }
 ```
@@ -730,7 +866,7 @@ Components prevent focus trapping vulnerabilities:
 - [ ] Responsive behavior correct
 - [ ] Keyboard navigation works
 - [ ] Screen reader announcements correct
-- [ ] `asChild` composition works correctly
+- [x] `asChild` composition works correctly
 
 **Example Story Structure**:
 ```typescript
@@ -1018,7 +1154,6 @@ The following are explicitly excluded from this TDD and the initial implementati
 
 ```
 src/
-├── index.ts                              # Barrel export
 ├── components/
 │   ├── hero/
 │   │   ├── index.ts
@@ -1080,6 +1215,7 @@ src/
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | TBD | Initial release with 7 components, theme system, ESM-only build, CSS-first Tailwind v4, asChild composition |
+| 1.1 | TBD | Extended from shadcn/ui foundation, integrated design skills (design-taste-frontend, shadcn-ui, impeccable), added Badge component, updated CSS configuration |
 
 ---
 
@@ -1087,5 +1223,8 @@ src/
 - [Product Requirements Document](./PRD.md) - Business requirements and user stories
 - Nicholas C. Zakas: [The importance of artifacts in AI-assisted programming](https://humanwhocodes.com/blog/2026/02/artifacts-ai-assisted-programming/)
 - shadcn/ui: [Component patterns](https://ui.shadcn.com)
+- shadcn/ui Customization: [How to Make Shadcn UI Components Actually Yours](https://ui.spectrumhq.in/blog/shadcn-customization-guide)
 - Tailwind CSS v4: [CSS-first configuration](https://tailwindcss.com)
 - Radix UI: [Slot primitive](https://www.radix-ui.com/primitives/docs/utilities/slot)
+- design-taste-frontend: [Premium UI/UX skill](https://github.com/leonxlnx/taste-skill)
+- impeccable: [Code quality skills](https://github.com/pbakaus/impeccable)

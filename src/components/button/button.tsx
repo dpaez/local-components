@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
@@ -13,17 +13,16 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        disabled: "bg-muted text-muted-foreground cursor-not-allowed opacity-50",
       },
       size: {
-        default: "h-9 px-4 py-2",
+        medium: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         icon: "h-9 w-9",
       },
     },
     defaultVariants: {
       variant: "primary",
-      size: "default",
+      size: "medium",
     },
   },
 );
@@ -41,6 +40,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const Comp = asChild ? Slot : "button";
+    console.log(variant);
     return (
       <Comp
         data-slot="button"
@@ -49,8 +49,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {icon && iconPosition === "start" && icon}
-        {children}
-        {icon && iconPosition === "end" && icon}
+        <Slottable>{children}</Slottable>
+        {icon && iconPosition === "end" && icon} 
       </Comp>
     );
   },

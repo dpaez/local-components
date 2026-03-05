@@ -12,11 +12,11 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "ghost", "outline", "disabled"],
+      options: ["primary", "ghost", "outline"],
     },
     size: {
       control: "select",
-      options: ["default", "sm", "icon"],
+      options: ["medium", "sm", "icon"],
     },
     iconPosition: {
       control: "select",
@@ -52,7 +52,6 @@ export const Outline: Story = {
 export const Disabled: Story = {
   args: {
     children: "Disabled Button",
-    variant: "disabled",
     disabled: true,
   },
 };

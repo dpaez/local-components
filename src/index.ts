@@ -1,5 +1,5 @@
-import { serve } from "bun";
-import index from "./index.html";
+import { serve } from "bun"
+import index from "./index.html"
 
 const server = serve({
   routes: {
@@ -14,6 +14,6 @@ const server = serve({
     // Echo console logs from the browser to the server
     console: true,
   },
-});
+})
 
-console.log(`🚀 Server running at ${server.url}`);
+console.log(`🚀 Server running at ${server.url}`)

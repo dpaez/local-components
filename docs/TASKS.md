@@ -691,9 +691,27 @@ This document provides detailed implementation tasks for the local-components li
 
 ---
 
+## Phase 6: Improve Stories
+
+**Overview**: Update and fix stories. The goal is to make them more clean and direct. Some stories are not working or not needed (not a valid use case). 
+
+**Deliverable**: Updated stories and component API when needed. Update related documents too (README.md, and docs/)
+
+**Dependencies**: 
+- All component tasks completed
+- Task 11 (Storybook - mention it)
+
+**Acceptance Criteria**:
+- [ ] Button Fixes
+  - Story sizes. Button should use a medium size as the default (ie: default is now medium). Instead of having a "small story", we need a "size story" showcasing small, medium and large buttons sizes. 
+  - Add support for a `secondary` button option. Primary is still the default. Check the new style with the secondary color.
+  - Create a CTA (call to action) button. This is a new button
+- [ ] 
+
+
 ## Summary
 
-**Total Tasks**: 15
+**Total Tasks**: 16
 
 **Phase Breakdown**:
 - Phase 1 (Foundation): 3 tasks (config, theme, package)
@@ -701,6 +719,7 @@ This document provides detailed implementation tasks for the local-components li
 - Phase 3 (Medium Priority Components): 4 tasks (Typography, Card, Section, Hero)
 - Phase 4 (Storybook): 2 tasks
 - Phase 5 (Tooling & Build): 3 tasks
+- Phase 6 (Improve Stories): 
 
 **Dependencies Graph**:
 ```
