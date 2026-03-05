@@ -28,10 +28,15 @@ export interface ToggleProps
     VariantProps<typeof toggleVariants> {
   showLabel?: boolean
   icon?: boolean
+  darkIcon?: React.ReactNode
+  lightIcon?: React.ReactNode
 }
 
+const defaultDarkIcon = <Moon className='h-4 w-4 transition-all' />
+const defaultLightIcon = <Sun className='h-4 w-4 transition-all' />
+
 const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
-  ({ className, variant = 'icon', showLabel = false, icon = true, ...props }, ref) => {
+  ({ className, variant = 'icon', showLabel = false, icon = true, darkIcon = defaultDarkIcon, lightIcon = defaultLightIcon, ...props }, ref) => {
     const { resolvedTheme, toggleTheme, theme } = useTheme()
     const isDark = resolvedTheme === 'dark'
 
@@ -81,9 +86,9 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
         {icon && (
           <>
             {isDark ? (
-              <Moon className='h-4 w-4 transition-all' />
+              darkIcon
             ) : (
-              <Sun className='h-4 w-4 transition-all' />
+              lightIcon
             )}
           </>
         )}

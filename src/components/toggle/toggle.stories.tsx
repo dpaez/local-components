@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Layout } from '../layout/layout'
 import { Toggle } from './toggle'
+import { Lightbulb, LightbulbOff } from 'lucide-react'
 
 const meta: Meta<typeof Toggle> = {
   title: 'Components/Toggle',
@@ -53,5 +54,14 @@ export const ButtonWithoutLabel: Story = {
   args: {
     variant: 'button',
     showLabel: false,
+  },
+}
+
+export const ButtonWithCustomIcons: Story = {
+  args: {
+    variant: 'button',
+    showLabel: false,
+    darkIcon: <Lightbulb className='h-4 w-4 transition-all' />,
+    lightIcon: <LightbulbOff className='h-4 w-4 transition-all' />,
   },
 }
