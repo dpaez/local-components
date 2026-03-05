@@ -747,20 +747,20 @@ Task 3 (Package) ────────┼───────────┼
 - Task 11 (Storybook - mention it)
 
 **Acceptance Criteria**:
-- [ ] Button Fixes
-  - Story sizes. Button should use a medium size as the default (ie: default is now medium). Instead of having a "small story", we need a "size story" showcasing small, medium and large buttons sizes. 
-  - Add support for a `secondary` button option. Primary is still the default. Check the new style with the secondary color.
-  - Create a new variant CTA (call to action) button. This is a new button with an animated color border.
-- [ ] Card Fixes
-  - Extend from shadcn card
-- [ ] Hero Fixes
-  - Left and Right aligned stories don't work well. Left stays left and top aligned whilst right is right and middle aligned. Both should be middle aligned.
-    - Also, on smaller screens the left and right alignment should work. Not working now. 
-  - Hero component height is screen size.
-  - With Background Color story should use a theme color and text should be readable.
-  - Split story is not working. No visible image, what is this story about?
-  - Improve stories with the design skills
-- [ ] Toggle Fixes
+- [x] Button Fixes ✅
+  - [x] Story sizes. Button uses medium as default. Added "Sizes" story showcasing sm, medium, lg ✅
+  - [x] Add support for a `secondary` button option. Primary is still the default ✅
+  - [x] Create a new variant CTA button with animated gradient border ✅
+- [x] Card Fixes ✅
+  - [x] Extend from shadcn card (Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter) ✅
+- [x] Hero Fixes ✅
+  - [x] Left and Right aligned stories now vertically centered with proper alignment ✅
+  - [x] Mobile alignment fixed with responsive flex centering ✅
+  - [x] Hero component height is now min-h-screen ✅
+  - [x] With Background Color story uses theme color with proper text contrast ✅
+  - [x] Split story now shows gradient placeholder when no image, with proper explanation ✅
+  - [x] Improved stories with design skills (picsum.photos for reliable images, consistent naming, no generic content) ✅
+- [x] Toggle Fixes ✅
   - [x] Switch variant should use shadcn switch ✅
   - [x] icon should be parametrizable (allows 2 options -- boolean) ✅
 
@@ -849,7 +849,7 @@ Task 3 (Package) ────────┼───────────┼
 - [x] Toggle switch respects theme (light/dark) ✅
 - [x] Toggle switch is keyboard accessible (Space/Enter) ✅
 - [x] Toggle switch respects prefers-reduced-motion ✅
-- [ ] Storybook shows all 3 toggle variants (needs verification)
+- [x] Storybook shows all 3 toggle variants (icon, button, switch) ✅
 - [x] CSS variables properly integrated with shadcn ✅
 
 **Out of Scope**:

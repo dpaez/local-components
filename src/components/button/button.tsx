@@ -10,13 +10,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+        secondary: 'bg-secondary text-secondary-foreground shadow hover:bg-secondary/90',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         outline:
           'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
+        cta: 'relative bg-primary text-primary-foreground hover:bg-primary/90 animate-border-gradient',
       },
       size: {
-        medium: 'h-9 px-4 py-2',
         sm: 'h-8 rounded-md px-3 text-xs',
+        medium: 'h-9 px-4 py-2',
+        lg: 'h-11 rounded-md px-8 text-base',
         icon: 'h-9 w-9',
       },
     },
@@ -40,7 +43,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const Comp = asChild ? Slot : 'button'
-    console.log(variant)
     return (
       <Comp
         data-slot='button'
