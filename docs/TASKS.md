@@ -761,8 +761,8 @@ Task 3 (Package) ────────┼───────────┼
   - Split story is not working. No visible image, what is this story about?
   - Improve stories with the design skills
 - [ ] Toggle Fixes
-  - Switch variant should use shadcn switch
-  - icon should be parametrizable (allows 2 options -- boolean)
+  - [x] Switch variant should use shadcn switch ✅
+  - [x] icon should be parametrizable (allows 2 options -- boolean) ✅
 
 **Out of Scope**:
 - Full API documentation (use Storybook for that)
@@ -800,15 +800,15 @@ Task 3 (Package) ────────┼───────────┼
 - shadcn/ui Badge installation
 
 **Acceptance Criteria**:
-- [ ] Install shadcn/ui Badge component via CLI
-- [ ] Extend Badge with local styling (colors, typography)
-- [ ] Support 4 variants: default, secondary, outline, destructive
-- [ ] Support optional icon (left side)
-- [ ] Support dismissible variant with close button (aria-label)
-- [ ] Proper TypeScript types exported
-- [ ] Storybook stories with all variants
-- [ ] Keyboard accessible (dismissible variant)
-- [ ] Follow design-taste-frontend skill (no emojis, proper typography)
+- [x] Install shadcn/ui Badge component via CLI ✅
+- [x] Extend Badge with local styling (colors, typography) ✅
+- [x] Support 4 variants: default, secondary, outline, destructive ✅
+- [x] Support optional icon (left side) ✅
+- [x] Support dismissible variant with close button (aria-label) ✅
+- [x] Proper TypeScript types exported ✅
+- [x] Storybook stories with all variants ✅
+- [x] Keyboard accessible (dismissible variant) ✅
+- [x] Follow design-taste-frontend skill (no emojis, proper typography) ✅
 
 **Out of Scope**:
 - Complex badge groups or layouts
@@ -843,14 +843,14 @@ Task 3 (Package) ────────┼───────────┼
 - Task 6 (Toggle component base)
 
 **Acceptance Criteria**:
-- [ ] shadcn/ui CLI configured for the project
-- [ ] Switch component installed via shadcn CLI
-- [ ] Toggle switch variant uses shadcn Switch internally
-- [ ] Toggle switch respects theme (light/dark)
-- [ ] Toggle switch is keyboard accessible (Space/Enter)
-- [ ] Toggle switch respects prefers-reduced-motion
-- [ ] Storybook shows all 3 toggle variants
-- [ ] CSS variables properly integrated with shadcn
+- [x] shadcn/ui CLI configured for the project ✅
+- [x] Switch component installed via shadcn CLI ✅
+- [x] Toggle switch variant uses shadcn Switch internally ✅
+- [x] Toggle switch respects theme (light/dark) ✅
+- [x] Toggle switch is keyboard accessible (Space/Enter) ✅
+- [x] Toggle switch respects prefers-reduced-motion ✅
+- [ ] Storybook shows all 3 toggle variants (needs verification)
+- [x] CSS variables properly integrated with shadcn ✅
 
 **Out of Scope**:
 - Other shadcn components (install as needed)

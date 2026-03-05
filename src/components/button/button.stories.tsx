@@ -1,88 +1,88 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { ArrowRight, Download } from "lucide-react";
+import type { Meta, StoryObj } from '@storybook/react'
+import { ArrowRight, Download } from 'lucide-react'
 
-import { Button } from "./button";
+import { Button } from './button'
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Button",
+  title: 'Components/Button',
   component: Button,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   argTypes: {
     variant: {
-      control: "select",
-      options: ["primary", "ghost", "outline"],
+      control: 'select',
+      options: ['primary', 'ghost', 'outline'],
     },
     size: {
-      control: "select",
-      options: ["medium", "sm", "icon"],
+      control: 'select',
+      options: ['medium', 'sm', 'icon'],
     },
     iconPosition: {
-      control: "select",
-      options: ["start", "end"],
+      control: 'select',
+      options: ['start', 'end'],
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof Button>;
+export default meta
+type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
   args: {
-    children: "Button",
-    variant: "primary",
+    children: 'Button',
+    variant: 'primary',
   },
-};
+}
 
 export const Ghost: Story = {
   args: {
-    children: "Ghost Button",
-    variant: "ghost",
+    children: 'Ghost Button',
+    variant: 'ghost',
   },
-};
+}
 
 export const Outline: Story = {
   args: {
-    children: "Outline Button",
-    variant: "outline",
+    children: 'Outline Button',
+    variant: 'outline',
   },
-};
+}
 
 export const Disabled: Story = {
   args: {
-    children: "Disabled Button",
+    children: 'Disabled Button',
     disabled: true,
   },
-};
+}
 
 export const Small: Story = {
   args: {
-    children: "Small Button",
-    size: "sm",
+    children: 'Small Button',
+    size: 'sm',
   },
-};
+}
 
 export const WithIcon: Story = {
   args: {
-    children: "With Icon",
+    children: 'With Icon',
     icon: <ArrowRight />,
-    iconPosition: "end",
+    iconPosition: 'end',
   },
-};
+}
 
 export const IconOnly: Story = {
   args: {
     icon: <Download />,
-    size: "icon",
-    "aria-label": "Download",
+    size: 'icon',
+    'aria-label': 'Download',
   },
-};
+}
 
 export const AsChild: Story = {
   args: {
     asChild: true,
-    children: <a href="/">Link Button</a>,
-    variant: "ghost",
+    children: <a href='/'>Link Button</a>,
+    variant: 'ghost',
   },
-};
+}
