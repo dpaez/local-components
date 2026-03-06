@@ -84,10 +84,10 @@ export const WithAnchor: Story = {
     title: 'Features Section',
     subtitle: 'Navigate to this section with #features',
     children: (
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-        <Card title='Feature 1' description='Description of feature 1' />
-        <Card title='Feature 2' description='Description of feature 2' />
-        <Card title='Feature 3' description='Description of feature 3' />
+      <div className='grid grid-cols-1 md:grid-rows-3 lg:grid-cols-3  gap-4'>
+        <Card title='Feature 1' description='Description of feature 1' size='sm' />
+        <Card title='Feature 2' description='Description of feature 2' size='sm' />
+        <Card title='Feature 3' description='Description of feature 3' size='sm' />
       </div>
     ),
   },

@@ -16,9 +16,9 @@ const cardVariants = cva('', {
   variants: {
     variant: {
       default: '',
-      bordered: '[&>div]:border-2 [&>div]:border-primary',
-      ghost: '[&>div]:border-transparent [&>div]:bg-transparent [&>div]:shadow-none',
-      elevated: '[&>div]:shadow-lg [&>div]:hover:shadow-xl [&>div]:transition-shadow',
+      bordered: 'border-2 border-primary ring-1 ring-primary/10',
+      ghost: 'border-transparent bg-transparent shadow-none ring-transparent',
+      elevated: 'shadow-lg hover:shadow-xl transition-shadow',
     },
   },
   defaultVariants: {
@@ -37,11 +37,12 @@ export interface CardProps
   footer?: React.ReactNode
   href?: string
   asChild?: boolean
+  size?: 'sm' | 'default'
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (
-    { className, variant, title, description, image, footer, href, asChild = false, children, ...props },
+    { className, variant, title, description, image, footer, href, asChild = false, children, size='default', ...props },
     ref,
   ) => {
     const Comp = asChild ? Slot : 'div'
@@ -50,18 +51,21 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 
     const cardContent = (
       <ShadcnCard
-        ref={ref as React.Ref<HTMLDivElement>}
-        className={cn(cardVariants({ variant }), isLink && 'cursor-pointer hover:opacity-90 transition-opacity', className)}
+        className={
+          cn(cardVariants({ variant }), 
+          'relative w-full group', 
+          isLink && 'cursor-pointer hover:opacity-90 transition-opacity', 
+          image && 'pt-0',
+          className)}
+        size={size}
         {...props}
       >
         {image && (
-          <div className="relative w-full overflow-hidden rounded-t-xl">
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-48 object-cover"
-            />
-          </div>
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="relative z-20 w-full object-cover aspect-video group-hover:brightness-100 transition-all brightness-60 dark:brightness-40"
+          />
         )}
         {(title || description) && (
           <CardHeader>
@@ -70,7 +74,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           </CardHeader>
         )}
         {children && <CardContent>{children}</CardContent>}
-        {footer && <CardFooter className="flex justify-between">{footer}</CardFooter>}
+        {footer && <CardFooter className="flex justify-between bg-accent/20 text-accent-foreground">{footer}</CardFooter>}
       </ShadcnCard>
     )
 

@@ -6,9 +6,6 @@ import { Card } from './card'
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
-  parameters: {
-    layout: 'centered',
-  },
   argTypes: {
     variant: {
       control: 'select',

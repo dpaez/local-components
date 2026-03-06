@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Hero } from './hero'
+import { Text, Heading } from '../typography'
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Hero',
@@ -63,42 +64,23 @@ export const FullBleed: Story = {
   },
 }
 
-export const LeftAligned: Story = {
-  args: {
-    title: 'Left Aligned Hero',
-    subtitle: 'Content is aligned to the left side with vertical centering.',
-    alignment: 'left',
-  },
-}
-
-export const RightAligned: Story = {
-  args: {
-    title: 'Right Aligned Hero',
-    subtitle: 'Content is aligned to the right side with vertical centering.',
-    alignment: 'right',
-  },
-}
-
 export const AlignmentShowcase: Story = {
   render: () => (
-    <div className="space-y-8">
+    <div className="space-y-8 w-full">
       <Hero
         title="Left Aligned"
         subtitle="Perfect for text-heavy layouts with supporting content on the right."
         alignment="left"
-        variant="minimal"
       />
       <Hero
         title="Center Aligned"
         subtitle="Classic centered layout for impact and focus."
         alignment="center"
-        variant="minimal"
       />
       <Hero
         title="Right Aligned"
         subtitle="Ideal for showcasing visuals or code snippets on the left."
         alignment="right"
-        variant="minimal"
       />
     </div>
   ),
@@ -128,8 +110,8 @@ export const WithBackgroundImage: Story = {
 
 export const WithBackgroundColor: Story = {
   args: {
-    title: 'Theme Background Color',
-    subtitle: 'This hero uses the primary color from the theme. Text automatically adjusts for contrast.',
+    title: <Heading as='h1' size='3xl' className='text-primary-foreground'>Theme Background Color</Heading>,
+    subtitle: <Text size='lg' className='text-primary-foreground'>This hero uses the primary color from the theme. Text automatically adjusts for contrast.</Text>,
     background: {
       type: 'color',
       value: 'var(--primary)',
@@ -168,7 +150,9 @@ export const Split: Story = {
   args: {
     title: 'Split Layout Hero',
     subtitle: 'A two-column layout with content on the left and visual space on the right. The right column displays a gradient placeholder when no image is provided.',
+    splitContent: <Text size='sm' className='bg-black/30 text-white/90 backdrop-blur-sm p-4 rounded-md'>Split layout - add background image for visual content</Text>,
     variant: 'split',
+    alignment: 'left',
   },
   parameters: {
     docs: {
