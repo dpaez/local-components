@@ -133,11 +133,11 @@ export const WithBackgroundColor: Story = {
 
 export const WithGradient: Story = {
   args: {
-    title: 'Gradient Background',
-    subtitle: 'A smooth gradient using theme colors for visual depth.',
+    title: <Heading as='h1' size='3xl' className='text-primary-foreground'>Gradient Background</Heading>,
+    subtitle: <Text size='lg' className='text-primary-foreground'>A smooth gradient using theme colors for visual depth.</Text>,
     background: {
       type: 'gradient',
-      value: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
+      value: 'linear-gradient(135deg, var(--primary) 0%, rgba(0,0,0,0) 100%)',
     },
     cta: {
       label: 'Get Started',

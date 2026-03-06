@@ -44,6 +44,11 @@ export interface HeroProps
   splitContent?: React.ReactNode | string
 }
 
+// const Noise = () => {
+//   return 
+//   'url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22500%22%20height%3D%22500%22%3E%3Cfilter%20id%3D%22noise%22%20x%3D%220%22%20y%3D%220%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.65%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeBlend%20mode%3D%22screen%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20filter%3D%22url(%23noise)%22%20opacity%3D%220.5%22%2F%3E%3C%2Fsvg%3E")';
+// }
+
 const Hero = React.forwardRef<HTMLElement, HeroProps>(
   (
     {
@@ -74,9 +79,17 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
             backgroundPosition: 'center',
           }
         case 'color':
-          return { backgroundColor: background.value }
+          return { 
+            backgroundColor: background.value, 
+            backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMi4zOSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIvPjwvc3ZnPg==)',
+            filter: 'contrast(100%) brightness(100%)',
+             
+          }
         case 'gradient':
-          return { background: background.value }
+          return { 
+            background: background.value + ', url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAwIDQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMi4zOSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIvPjwvc3ZnPg==)',
+            filter: 'contrast(100%) brightness(100%)',
+          }
         default:
           return {}
       }
