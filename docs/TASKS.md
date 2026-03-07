@@ -701,6 +701,7 @@ This document provides detailed implementation tasks for the local-components li
 - Phase 3 (Medium Priority Components): 4 tasks (Typography, Card, Section, Hero)
 - Phase 4 (Storybook): 2 tasks
 - Phase 5 (Tooling & Build): 3 tasks
+- Phase 6 (Improve Stories): 
 
 **Dependencies Graph**:
 ```
@@ -730,3 +731,177 @@ Task 3 (Package) ────────┼───────────┼
 5. Components work on dpaez.github.io (Future deployment)
 6. README with installation and usage ✅ (Task 15)
 7. Design system documented ✅ (PRD + This doc)
+
+---
+
+## Phase 6: Improve Components
+
+### Task 16: Components and Stories Fixes
+
+**Overview**: Update and fix stories. The goal is to make them more clean and direct. Some stories are not working or not needed (not a valid use case). 
+
+**Deliverable**: Updated stories and component API when needed. Update related documents too (README.md, and docs/)
+
+**Dependencies**: 
+- All component tasks completed
+- Task 11 (Storybook - mention it)
+
+**Acceptance Criteria**:
+- [x] Button Fixes ✅
+  - [x] Story sizes. Button uses medium as default. Added "Sizes" story showcasing sm, medium, lg ✅
+  - [x] Add support for a `secondary` button option. Primary is still the default ✅
+  - [x] Create a new variant CTA button with animated gradient border ✅
+- [x] Card Fixes ✅
+  - [x] Extend from shadcn card (Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter) ✅
+- [x] Hero Fixes ✅
+  - [x] Left and Right aligned stories now vertically centered with proper alignment ✅
+  - [x] Mobile alignment fixed with responsive flex centering ✅
+  - [x] Hero component height is now min-h-screen ✅
+  - [x] With Background Color story uses theme color with proper text contrast ✅
+  - [x] Split story now shows gradient placeholder when no image, with proper explanation ✅
+  - [x] Improved stories with design skills (picsum.photos for reliable images, consistent naming, no generic content) ✅
+- [x] Toggle Fixes ✅
+  - [x] Switch variant should use shadcn switch ✅
+  - [x] icon should be parametrizable (allows 2 options -- boolean) ✅
+
+**Out of Scope**:
+- Full API documentation (use Storybook for that)
+- Migration guides (v1 is first version)
+- Video tutorials
+
+**Tips**:
+- Use `argTypes` to control prop values in UI
+- Create variants as separate stories for easy comparison
+- Include a "Kitchen Sink" story showing all features
+- Test edge cases: long text, empty props, etc.
+- Use globals to force theme: `globals: { theme: 'dark' }`
+
+---
+
+### Task 17: Create Badge Component
+
+**Overview**: Add a new Badge component to display tags, labels, or categorized content. The Badge extends from shadcn/ui Badge foundation and adds local customization for personal site use cases.
+
+**Deliverable**:
+- `src/components/badge/index.ts` - Component barrel export
+- `src/components/badge/badge.tsx` - Badge implementation extending shadcn/ui Badge
+- `src/components/badge/badge.stories.tsx` - Storybook stories
+- Badge stories showcasing:
+  - Default variant
+  - Secondary variant
+  - Outline variant
+  - Destructive variant
+  - With icon (optional)
+  - Dismissible with close button
+
+**Dependencies**:
+- Task 1 (Tailwind config with design tokens)
+- Task 11 (Storybook setup)
+- shadcn/ui Badge installation
+
+**Acceptance Criteria**:
+- [x] Install shadcn/ui Badge component via CLI ✅
+- [x] Extend Badge with local styling (colors, typography) ✅
+- [x] Support 4 variants: default, secondary, outline, destructive ✅
+- [x] Support optional icon (left side) ✅
+- [x] Support dismissible variant with close button (aria-label) ✅
+- [x] Proper TypeScript types exported ✅
+- [x] Storybook stories with all variants ✅
+- [x] Keyboard accessible (dismissible variant) ✅
+- [x] Follow design-taste-frontend skill (no emojis, proper typography) ✅
+
+**Out of Scope**:
+- Complex badge groups or layouts
+- Badge animations beyond CSS transitions
+- Badge selection state (use Toggle instead)
+
+**Tips**:
+- Install: `npx shadcn@latest add badge`
+- Use CVA for variant management
+- For dismissible: use Radix UI Dialog primitive or custom implementation
+- Apply design skills: consistent spacing, proper color contrast
+- Test in both light and dark modes
+
+---
+
+### Task 18: shadcn/ui Integration and Switch Implementation
+
+**Overview**: Integrate shadcn/ui components as the foundation layer, starting with installing the Switch component for the Toggle's switch variant. Set up the pattern for extending shadcn components.
+
+**Deliverable**:
+- shadcn/ui CLI initialized (`npx shadcn@latest init` if needed)
+- `src/components/ui/switch.tsx` - shadcn Switch component installed
+- `src/components/toggle/toggle.tsx` - Updated to use shadcn Switch for switch variant
+- Updated Toggle stories showing all 3 variants:
+  - icon (current)
+  - button (current)
+  - switch (new, using shadcn Switch)
+
+**Dependencies**:
+- Task 1 (Tailwind config)
+- Task 2 (Theme context)
+- Task 6 (Toggle component base)
+
+**Acceptance Criteria**:
+- [x] shadcn/ui CLI configured for the project ✅
+- [x] Switch component installed via shadcn CLI ✅
+- [x] Toggle switch variant uses shadcn Switch internally ✅
+- [x] Toggle switch respects theme (light/dark) ✅
+- [x] Toggle switch is keyboard accessible (Space/Enter) ✅
+- [x] Toggle switch respects prefers-reduced-motion ✅
+- [x] Storybook shows all 3 toggle variants (icon, button, switch) ✅
+- [x] CSS variables properly integrated with shadcn ✅
+
+**Out of Scope**:
+- Other shadcn components (install as needed)
+- Full shadcn/ui theme migration
+- shadcn registry components
+
+**Tips**:
+- Run: `npx shadcn@latest init` to set up shadcn
+- Run: `npx shadcn@latest add switch`
+- shadcn components go in `src/components/ui/`
+- Extend locally in `src/components/` (e.g., Toggle wraps Switch)
+- See TDD.md: "Extend from shadcn/ui first" philosophy
+- Reference: https://ui.spectrumhq.in/blog/shadcn-customization-guide
+
+---
+
+## Updated Summary
+
+**Total Tasks**: 18
+
+**Phase Breakdown**:
+- Phase 1 (Foundation): 3 tasks (config, theme, package)
+- Phase 2 (High Priority Components): 3 tasks (Button, Layout, Toggle)
+- Phase 3 (Medium Priority Components): 4 tasks (Typography, Card, Section, Hero)
+- Phase 4 (Storybook): 2 tasks
+- Phase 5 (Tooling & Build): 3 tasks
+- Phase 6 (Improve Components): 3 tasks (16, 17, 18)
+
+**Dependencies Graph**:
+```
+Task 1 (Tailwind) ──────┬──────────────────────────────────┐
+                        │                                  │
+Task 2 (Theme) ────────┼───> Task 5 (Layout) ────────────┤
+                        │           │                      │
+Task 3 (Package) ────────┼───────────┼───> Task 12-15
+                        │           │                      │
+                        ├───> Task 4 (Button) ─────────────┤
+                        │           │                      │
+                        ├───> Task 6 (Toggle) ─────────────┤
+                        │           │                      │
+                        ├───> Task 18 (shadcn Switch) ─────┘
+                        │                                  │
+                        ├───> Task 7 (Typography) ─────────┤
+                        ├───> Task 8 (Card) ───────────────┤
+                        ├───> Task 9 (Section) ──────────────┤
+                        ├───> Task 10 (Hero) ────────────────┤
+                        └───> Task 17 (Badge) ─────────────┘
+```
+
+**New Critical Paths**:
+- Badge: 1 → 2 → 17
+- shadcn Switch: 1 → 2 → 6 → 18
+- Component Fixes: All previous → 16
+

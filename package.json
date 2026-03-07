@@ -46,6 +46,10 @@
       "import": "./dist/components/hero/index.js",
       "types": "./dist/components/hero/index.d.ts"
     },
+    "./components/badge": {
+      "import": "./dist/components/badge/index.js",
+      "types": "./dist/components/badge/index.d.ts"
+    },
     "./lib/theme-context": {
       "import": "./dist/lib/theme-context/index.js",
       "types": "./dist/lib/theme-context/index.d.ts"
@@ -64,6 +68,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "radix-ui": "^1.4.3",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
