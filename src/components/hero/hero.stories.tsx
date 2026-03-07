@@ -33,13 +33,21 @@ export const Default: Story = {
 
 export const WithCta: Story = {
   args: {
-    title: 'Build Something Amazing',
+    title: "Build Something Amazing!",
     subtitle: 'Get started with our beautiful, accessible components.',
+
+    background: {
+      type: 'mesh',
+      value: 'test-mesh',
+    },
+
     cta: {
       label: 'Get Started',
       href: '/docs',
       variant: 'primary',
     },
+
+    alignment: "center"
   },
 }
 

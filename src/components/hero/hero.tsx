@@ -37,7 +37,7 @@ export interface HeroProps
     variant?: 'primary' | 'secondary'
   }
   background?: {
-    type: 'image' | 'color' | 'gradient'
+    type: 'image' | 'color' | 'gradient' | 'mesh'
     value: string
   }
   asChild?: boolean
@@ -157,7 +157,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
         </div>
       </div>
     )
-
+console.log(background?.type)
     if (variant === 'split') {
       return (
         <Comp
@@ -183,6 +183,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
               }}
             />
           )}
+          
           {!background?.type && (
             <div className='flex relative h-full radial-gradient-background'>
               <div className='md:absolute inset-0 flex items-center justify-center p-4 md:p-2'>
@@ -201,13 +202,62 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
         ref={ref}
         className={cn(
           heroVariants({ variant, alignment }),
-          'items-center justify-center',
+          'items-center justify-center relative',
           className,
         )}
         style={getBackgroundStyles()}
         {...props}
       >
         {background?.type === 'image' && <div className='absolute inset-0 bg-black/40' />}
+        {background?.type === 'mesh' && (
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, #e7e5e4 1px, transparent 1px),
+                linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
+              `,
+              backgroundSize: "20px 20px",
+              backgroundPosition: "0 0, 0 0",
+              maskImage: `
+                repeating-linear-gradient(
+                      to right,
+                      black 0px,
+                      black 3px,
+                      transparent 3px,
+                      transparent 8px
+                    ),
+                    repeating-linear-gradient(
+                      to bottom,
+                      black 0px,
+                      black 3px,
+                      transparent 3px,
+                      transparent 8px
+                    ),
+                    radial-gradient(ellipse 100% 80% at 50% 100%, #000 50%, transparent 90%)
+              `,
+              WebkitMaskImage: `
+          repeating-linear-gradient(
+                      to right,
+                      black 0px,
+                      black 3px,
+                      transparent 3px,
+                      transparent 8px
+                    ),
+                    repeating-linear-gradient(
+                      to bottom,
+                      black 0px,
+                      black 3px,
+                      transparent 3px,
+                      transparent 8px
+                    ),
+                    radial-gradient(ellipse 100% 80% at 50% 100%, #000 50%, transparent 90%)
+              `,
+              maskComposite: "intersect",
+              WebkitMaskComposite: "source-in",
+            }}
+          />
+        )}
         {content}
       </Comp>
     )
