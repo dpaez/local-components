@@ -10,10 +10,10 @@ import { cn } from '@/lib/utils'
 const heroVariants = cva('relative w-full flex overflow-hidden', {
   variants: {
     variant: {
-      default: 'min-h-screen',
+      default: 'min-h-[100dvh]',
       minimal: 'min-h-[50vh]',
-      split: 'min-h-screen',
-      'full-bleed': 'min-h-screen',
+      split: 'min-h-[100dvh]',
+      'full-bleed': 'min-h-[100dvh]',
     },
     alignment: {
       left: 'justify-start',
@@ -147,7 +147,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
                 alignment === 'right' && 'justify-end',
               )}
             >
-              <Button variant={cta.variant === 'secondary' ? 'outline' : 'primary'}>
+              <Button asChild variant={cta.variant === 'secondary' ? 'outline' : 'primary'}>
                 <a href={cta.href}>{cta.label}</a>
               </Button>
             </div>
@@ -157,7 +157,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
         </div>
       </div>
     )
-console.log(background?.type)
+
     if (variant === 'split') {
       return (
         <Comp
@@ -208,7 +208,7 @@ console.log(background?.type)
         style={getBackgroundStyles()}
         {...props}
       >
-        {background?.type === 'image' && <div className='absolute inset-0 bg-black/40' />}
+        {background?.type === 'image' && <div className='absolute inset-0 bg-foreground/40' />}
         {background?.type === 'mesh' && (
           <div
             className="absolute inset-0 z-0"
@@ -234,7 +234,7 @@ console.log(background?.type)
                       transparent 3px,
                       transparent 8px
                     ),
-                    radial-gradient(ellipse 100% 80% at 50% 100%, #000 50%, transparent 90%)
+                    radial-gradient(ellipse 100% 80% at 50% 100%, var(--foreground) 50%, transparent 90%)
               `,
               WebkitMaskImage: `
           repeating-linear-gradient(

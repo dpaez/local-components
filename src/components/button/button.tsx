@@ -14,7 +14,8 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         outline:
           'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
-        cta: 'relative bg-primary text-primary-foreground hover:bg-primary/90 animate-border-gradient',
+        cta:
+          'relative bg-primary text-primary-foreground text-base font-semibold tracking-wide shadow-md min-w-[10rem] hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 animate-border-gradient transition-[transform,color,box-shadow] duration-200 ease-out active:scale-[0.98] active:translate-y-0 focus-visible:ring-2 focus-visible:ring-ring',
       },
       size: {
         sm: 'h-8 rounded-md px-3 text-xs',

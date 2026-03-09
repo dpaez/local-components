@@ -10,10 +10,32 @@
   --card-foreground: oklch(0.1450 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.1450 0 0);
-  --primary: oklch(0.5515 0.2467 272.5400);
+  --primary: oklch(0.5 0.25 272.55);
   --primary-foreground: oklch(0.9850 0 0);
+  --primary-base: 0.05;
+  --primary-10: oklch(from var(--primary) 10% calc(var(--primary-base) + (sin(1.0 * pi) * c)) h);
+  --primary-20: oklch(from var(--primary) 20% calc(var(--primary-base) + (sin(0.9 * pi) * c)) h);
+  --primary-30: oklch(from var(--primary) 30% calc(var(--primary-base) + (sin(0.8 * pi) * c)) h);
+  --primary-40: oklch(from var(--primary) 40% calc(var(--primary-base) + (sin(0.7 * pi) * c)) h);
+  --primary-50: oklch(from var(--primary) 50% calc(var(--primary-base) + (sin(0.6 * pi) * c)) h);
+  --primary-60: oklch(from var(--primary) 60% calc(var(--primary-base) + (sin(0.5 * pi) * c)) h);
+  --primary-70: oklch(from var(--primary) 70% calc(var(--primary-base) + (sin(0.4 * pi) * c)) h);
+  --primary-80: oklch(from var(--primary) 80% calc(var(--primary-base) + (sin(0.3 * pi) * c)) h);
+  --primary-90: oklch(from var(--primary) 90% calc(var(--primary-base) + (sin(0.2 * pi) * c)) h);
+  --primary-100: oklch(from var(--primary) 100% calc(var(--primary-base) + (sin(0.1 * pi) * c)) h);
   --secondary: oklch(0.7134 0.1799 47.4500);
   --secondary-foreground: oklch(0.9850 0 0);
+  --secondary-base: 0.05;
+  --secondary-10: oklch(from var(--secondary) 10% calc(var(--secondary-base) + (sin(1.0 * pi) * c)) h);
+  --secondary-20: oklch(from var(--secondary) 20% calc(var(--secondary-base) + (sin(0.9 * pi) * c)) h);
+  --secondary-30: oklch(from var(--secondary) 30% calc(var(--secondary-base) + (sin(0.8 * pi) * c)) h);
+  --secondary-40: oklch(from var(--secondary) 40% calc(var(--secondary-base) + (sin(0.7 * pi) * c)) h);
+  --secondary-50: oklch(from var(--secondary) 50% calc(var(--secondary-base) + (sin(0.6 * pi) * c)) h);
+  --secondary-60: oklch(from var(--secondary) 60% calc(var(--secondary-base) + (sin(0.5 * pi) * c)) h);
+  --secondary-70: oklch(from var(--secondary) 70% calc(var(--secondary-base) + (sin(0.4 * pi) * c)) h);
+  --secondary-80: oklch(from var(--secondary) 80% calc(var(--secondary-base) + (sin(0.3 * pi) * c)) h);
+  --secondary-90: oklch(from var(--secondary) 90% calc(var(--secondary-base) + (sin(0.2 * pi) * c)) h);
+  --secondary-100: oklch(from var(--secondary) 100% calc(var(--secondary-base) + (sin(0.1 * pi) * c)) h);
   --muted: oklch(0.9700 0 0);
   --muted-foreground: oklch(0.5560 0 0);
   --accent: oklch(0.8920 0.0373 218.0047);
@@ -189,11 +211,11 @@
 }
 
 .mesh-background {
-  background: radial-gradient(at 90.35560344827587% 83.125%, #f97828 0px, transparent 50%), radial-gradient(at 19.342672413793103% 28.958333333333336%, #c1e2ec 0px, transparent 50%), radial-gradient(at 78.93318965517241% 18.541666666666668%, #4a54fe 0px, transparent 50%), #70e2ff;
+  background: radial-gradient(at 90.35560344827587% 83.125%, var(--secondary) 0px, transparent 50%), radial-gradient(at 19.342672413793103% 28.958333333333336%, var(--secondary) 0px, transparent 50%), radial-gradient(at 78.93318965517241% 18.541666666666668%, var(--secondary) 0px, transparent 50%), var(--secondary);
 }
 
 .radial-gradient-background {
-  background: radial-gradient(circle at center, #ffd14c 0%, #fba772 30%, #fa975a 60%, #f97828 100%); 
+  background: radial-gradient(circle at center, var(--secondary-10) 0%, var(--secondary-20) 30%, var(--secondary-30) 60%, var(--secondary-40) 100%); 
   position: relative;
 }
 
@@ -223,11 +245,19 @@
     var(--primary)
   );
   background-size: 200% 100%;
-  animation: border-gradient 3s ease infinite;
+  background-position: 0% 50%;
+  animation: border-gradient 3s ease-out infinite;
+  transition: opacity 0.2s ease-out;
   z-index: -1;
   opacity: 0.8;
 }
 
 .animate-border-gradient:hover::before {
   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-border-gradient::before {
+    animation: none;
+  }
 }

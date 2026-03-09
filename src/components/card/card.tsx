@@ -64,7 +64,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           <img
             src={image.src}
             alt={image.alt}
-            className="relative z-20 w-full object-cover aspect-video group-hover:brightness-100 transition-all brightness-60 dark:brightness-40"
+            className="relative z-20 w-full object-cover aspect-video group-hover:brightness-100 transition-shadow brightness-60 dark:brightness-40"
           />
         )}
         {(title || description) && (
