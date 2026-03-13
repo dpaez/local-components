@@ -22,7 +22,7 @@ export function App() {
         title='Welcome to Local Components'
         subtitle='A brief description'
         background={{ type: 'color', value: '#efefef' }}
-        cta={{ label: 'Get Started', href: '/start', variant: 'primary' }}
+        cta={{ label: 'Get Started', href: '/start' }}
         alignment='center'
       />
       <div className='flex flex-col items-center justify-center mx-auto gap-4  text-center relative z-10 h-screen'>

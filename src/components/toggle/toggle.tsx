@@ -36,8 +36,19 @@ const defaultDarkIcon = <Moon className='h-4 w-4 transition-all' />
 const defaultLightIcon = <Sun className='h-4 w-4 transition-all' />
 
 const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
-  ({ className, variant = 'icon', showLabel = false, icon = true, darkIcon = defaultDarkIcon, lightIcon = defaultLightIcon, ...props }, ref) => {
-    const { resolvedTheme, toggleTheme, theme } = useTheme()
+  (
+    {
+      className,
+      variant = 'icon',
+      showLabel = false,
+      icon = true,
+      darkIcon = defaultDarkIcon,
+      lightIcon = defaultLightIcon,
+      ...props
+    },
+    ref,
+  ) => {
+    const { resolvedTheme, toggleTheme } = useTheme()
     const isDark = resolvedTheme === 'dark'
 
     const handleToggle = () => {
@@ -83,15 +94,7 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
         ref={ref}
         {...props}
       >
-        {icon && (
-          <>
-            {isDark ? (
-              darkIcon
-            ) : (
-              lightIcon
-            )}
-          </>
-        )}
+        {icon && <>{isDark ? darkIcon : lightIcon}</>}
         {showLabel && <span>{isDark ? 'Dark' : 'Light'}</span>}
       </button>
     )

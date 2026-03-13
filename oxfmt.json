@@ -5,9 +5,24 @@
   "jsxSingleQuote": true,
   "trailingComma": "all",
   "sortImports": {
+    "enabled": true,
     "newlinesBetween": true,
-    "internalPattern": [
-      "@/"
-    ]
+    "groupOrder": [
+      "builtin",
+      "external",
+      "internal",
+      "parent",
+      "sibling",
+      "index",
+      "object",
+      "type"
+    ],
+    "internalPattern": ["@/"]
+  },
+  "options": {
+    "typeAware": true
+  },
+  "sortPackageJson": {
+    "enabled": true
   }
 }

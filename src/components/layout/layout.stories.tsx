@@ -20,6 +20,9 @@ const meta: Meta<typeof Layout> = {
     centered: {
       control: 'boolean',
     },
+    noise: {
+      control: 'boolean',
+    },
     defaultTheme: {
       control: 'select',
       options: ['light', 'dark', 'system'],
@@ -33,7 +36,7 @@ type Story = StoryObj<typeof Layout>
 export const Default: Story = {
   args: {
     children: (
-      <div className='p-8 bg-muted rounded-lg'>
+      <div className='p-8 bg-primary-500 text-primary-foreground'>
         <h1 className='text-2xl font-bold'>Layout Content</h1>
         <p>This layout uses the default settings.</p>
       </div>
@@ -41,33 +44,38 @@ export const Default: Story = {
     maxWidth: 'lg',
     padding: 'md',
     centered: true,
+    noise: true,
+    defaultTheme: 'light',
   },
 }
 
 export const FullWidth: Story = {
   args: {
     children: (
-      <div className='p-8 bg-muted rounded-lg'>
+      <div className='p-8 bg-muted'>
         <h1 className='text-2xl font-bold'>Full Width Layout</h1>
         <p>This layout spans the full width.</p>
       </div>
     ),
     maxWidth: 'full',
-    padding: 'lg',
+    padding: 'none',
+    defaultTheme: 'light',
   },
 }
 
 export const Small: Story = {
   args: {
     children: (
-      <div className='p-8 bg-muted rounded-lg'>
+      <div className='p-8 bg-secondary-500 text-secondary-foreground rounded-lg'>
         <h1 className='text-2xl font-bold'>Small Layout</h1>
         <p>This layout has a small max-width.</p>
       </div>
     ),
     maxWidth: 'sm',
-    padding: 'md',
+    padding: 'none',
     centered: true,
+    noise: true,
+    defaultTheme: 'light',
   },
 }
 

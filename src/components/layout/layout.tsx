@@ -10,6 +10,7 @@ export interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
   centered?: boolean
   defaultTheme?: Theme
   storageKey?: string
+  noise?: boolean
 }
 
 const maxWidthClasses = {
@@ -37,6 +38,7 @@ const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
       centered = false,
       defaultTheme = 'light',
       storageKey = 'local-components-theme',
+      noise = false,
       ...props
     },
     ref,
@@ -51,11 +53,13 @@ const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
             maxWidthClasses[maxWidth],
             paddingClasses[padding],
             centered && 'mx-auto',
+            noise &&
+              'noise-bg before:fixed before:left-0 before:top-0 before:content-[""] before:w-full before:h-full before:z-50 before:pointer-events-none before:opacity-20',
             className,
           )}
           {...props}
         >
-          {children}
+          <div className={cn(noise && 'z-10 relative')}>{children}</div>
         </div>
       </ThemeProvider>
     )
