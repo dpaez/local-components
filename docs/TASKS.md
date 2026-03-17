@@ -927,7 +927,7 @@ Task 3 (Package) ────────┼───────────┼
 **Acceptance Criteria**:
 - [x] Data fetched from dpaez.github.io ✅
 - [x] Structured markdown at `src/portfolio/portfolio-data.md` ✅
-- [x] Data is reusable for all 3 portfolio variations ✅
+- [x] Data is reusable for the portfolio story ✅
 - [x] All sections from the site included ✅
 - [x] Ready for component mapping ✅
 - [x] Placeholder images referenced (picsum.photos with descriptive seeds) ✅
@@ -947,9 +947,9 @@ Task 3 (Package) ────────┼───────────┼
 
 ---
 
-### Task 20: Portfolio Variation 1 - "Minimalist Engineer"
+### Task 20: Portfolio Story - "Minimalist Engineer"
 
-**Overview**: Create the first portfolio page variation as a Storybook story with a clean, DASEIN-inspired aesthetic featuring strong typography and section-based layout.
+**Overview**: Create the portfolio page as a Storybook story with a clean, DASEIN-inspired aesthetic featuring strong typography and section-based layout.
 
 **Design Approach**:
 - **Inspiration**: DASEIN (roicort.github.io/dasein)
@@ -1015,13 +1015,13 @@ Task 3 (Package) ────────┼───────────┼
 - Phase 4 (Storybook): 2 tasks ✅
 - Phase 5 (Tooling & Build): 3 tasks ✅
 - Phase 6 (Improve Components): 3 tasks (16, 17, 18) ✅
-- **Phase 7 (Portfolio Variations): 2 tasks (19, 20)**
+- **Phase 7 (Portfolio Page): 2 tasks (19, 20)**
 
 **New Files to Create**:
 1. `src/portfolio/portfolio-data.md` (shared data)
 2. `src/portfolio/minimalist.stories.tsx`
 
-**Skills Applied by Variation**:
+**Skills Applied**:
 - Minimalist Engineer: normalize, polish
 
 **Dependencies Graph**:
@@ -1038,3 +1038,123 @@ Task 1-18 (All Previous Components)
 **Critical Paths**:
 - Portfolio Story: 1 → 2 → 19 → 20
 
+
+---
+
+## Phase 8: Design System Documentation
+
+### Task 21: Create DESIGN.md Document
+
+**Overview**: Create a comprehensive design context document (`docs/DESIGN.md`) that establishes clear design guidelines for AI assistants. This document will serve as the single source of truth for the local-components design system, synthesizing information from the codebase, PRD, and skill files.
+
+**Deliverable**:
+- `docs/DESIGN.md` containing:
+  - **Design Philosophy**: Minimalistic, content-first approach with neutral foundation and strategic accents
+  - **Color Palette**: Complete OKLCH values (primary `oklch(0.5 0.25 272.55)`, secondary `oklch(0.7134 0.1799 47.45)`) with light/dark mode mappings
+  - **Typography System**: System font stack, type scale (Display: bold/tight, Body: 400/relaxed, Small: 300-400)
+  - **Component Patterns**: Usage guidelines for all 8 components (Hero, Layout, Section, Typography, Card, Button, Toggle, Badge)
+  - **Design Principles**: 
+    1. Minimalistic approach - let content breathe
+    2. Strategic color use - primary for CTAs/links, secondary for accents
+    3. System fonts for performance
+    4. Subtle interactions (150-300ms transitions)
+    5. Semantic HTML and accessibility first
+  - **Inspiration References**: 
+    - DASEIN: Clean layout, strong typography, section-based organization
+    - SARAL: Card patterns, typography treatment
+  - **Anti-Patterns** (from design-taste-frontend skill):
+    - NO emojis in code/content (use icons instead)
+    - NO "AI Purple/Blue" aesthetic
+    - NO pure black (#000) or pure white (#fff)
+    - NO rounded elements with thick colored borders on one side
+    - NO gradient text or generic glassmorphism
+    - NO `h-screen` for hero sections (use `min-h-[100dvh]`)
+    - NO complex flexbox math (use CSS Grid)
+  - **Theme System**: Light/dark behavior, CSS variable mappings, automatic OS preference detection
+  - **Spacing & Layout**: Tailwind scale (xs: 0.25rem to 2xl: 8rem), container patterns
+  - **Accessibility**: WCAG compliance, reduced motion support, keyboard navigation
+  - **Design Tokens Reference**: Complete CSS variables mapping from globals.css
+
+**Dependencies**:
+- Task 1 (Tailwind config with design tokens) ✅
+- Task 19 (Portfolio data showing real-world usage) ✅
+- Task 20 (Portfolio story demonstrating design in practice) ✅
+- All existing documentation (PRD.md, TDD.md) ✅
+
+**Acceptance Criteria**:
+- [ ] Document covers all 8 components with usage patterns and props
+- [ ] All OKLCH color values match globals.css exactly
+- [ ] Typography scale documented with specific size/weight combinations
+- [ ] 5 design principles are actionable (not vague)
+- [ ] Anti-patterns clearly stated with "AVOID X, PREFER Y" format
+- [ ] References to DASEIN/SARAL with specific implementation takeaways
+- [ ] Written for AI consumption (clear headers, bullet points, examples)
+- [ ] Cross-references PRD.md and TDD.md where applicable
+- [ ] Includes CSS variables quick reference table
+- [ ] Specifies when to use which component (decision guide)
+- [ ] Ready for regular updates as design evolves
+
+**Out of Scope**:
+- Figma or visual design tool exports
+- Screenshots or visual examples (Storybook handles this)
+- Marketing copy or brand storytelling
+- Component API documentation (that's in TDD.md)
+- Code examples (those stay in stories)
+
+**Structure Outline**:
+```markdown
+# DESIGN.md - local-components Design System
+
+## 1. Design Philosophy
+## 2. Color Palette
+## 3. Typography System  
+## 4. Component Usage Guide
+## 5. Design Principles
+## 6. Inspiration & References
+## 7. Anti-Patterns (AVOID)
+## 8. Theme System
+## 9. Spacing & Layout
+## 10. Accessibility Standards
+## 11. Design Tokens Reference
+```
+
+**Tips**:
+- Write for quick scanning - AI assistants need to find answers fast
+- Include specific values (hex codes, OKLCH, Tailwind classes) - no ambiguity
+- Use tables for color mappings and component comparisons
+- Reference actual implementation patterns from minimalist.stories.tsx
+- Keep it technical but readable - this guides both developers AND AI
+- Update regularly when components or tokens change
+
+---
+
+## Final Summary
+
+**Total Tasks**: 21
+
+**Phase Breakdown**:
+- Phase 1 (Foundation): 3 tasks (config, theme, package) ✅
+- Phase 2 (High Priority Components): 3 tasks (Button, Layout, Toggle) ✅
+- Phase 3 (Medium Priority Components): 4 tasks (Typography, Card, Section, Hero) ✅
+- Phase 4 (Storybook): 2 tasks ✅
+- Phase 5 (Tooling & Build): 3 tasks ✅
+- Phase 6 (Improve Components): 3 tasks (16, 17, 18) ✅
+- Phase 7 (Portfolio Page): 2 tasks (19, 20) ✅
+- **Phase 8 (Design System Documentation): 1 task (21)**
+
+**Dependencies Graph**:
+```
+Task 19 (Portfolio Data)
+        │
+        └───> Task 20 (Minimalist Engineer)
+
+Task 1-18 (All Previous Components)
+        │
+        └───> Task 20 (Portfolio Story)
+        │
+        └───> Task 21 (DESIGN.md)
+```
+
+**Critical Paths**:
+- Portfolio Story: 1 → 2 → 19 → 20
+- Design Documentation: 1 → 2 → 19 → 20 → 21
