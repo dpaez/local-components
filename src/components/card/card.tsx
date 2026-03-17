@@ -9,6 +9,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
+  CardAction,
 } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
@@ -39,6 +40,7 @@ export interface CardProps
     src: string
     alt: string
   }
+  badge?: React.ReactNode
   footer?: React.ReactNode
   href?: string
   asChild?: boolean
@@ -52,6 +54,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       variant,
       title,
       meta,
+      badge,
       description,
       image,
       footer,
@@ -69,19 +72,22 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         className={cn(
           cardVariants({ variant }),
-          'relative w-full group py-4',
-          isLink && 'cursor-pointer hover:opacity-90 transition-opacity',
-          image && 'pt-0',
-          meta && 'flex-row basis-sm md:basis-2xl gap-0 py-0 min-h-36',
+          'group relative w-full rounded-2xl py-4 corner-bl-square corner-br-bevel corner-tl-bevel corner-tr-square',
+          isLink && 'cursor-pointer transition-opacity hover:opacity-90',
+          image && 'pt-0 ',
+          meta && 'min-h-36 basis-sm flex-row gap-0 py-0 md:basis-2xl',
           className,
         )}
         size={size}
+        style={{
+          textBox: 'cap alphabetic',
+        }}
         {...props}
       >
         {meta && <CardMeta meta={meta} />}
         <div
           className={cn(
-            'flex flex-col w-full gap-4',
+            'flex w-full flex-col gap-4',
             image && meta && 'pt-0 pb-4',
             meta && !image && 'py-4',
             footer && meta && 'pb-0',
@@ -92,14 +98,15 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
               src={image.src}
               alt={image.alt}
               className={cn(
-                variant === 'ghost' && 'rounded-b-xl',
-                'relative z-20 w-full object-cover aspect-video group-hover:brightness-100 transition-shadow brightness-60 ',
+                variant === 'ghost' && 'corner-bl-square corner-tr-square',
+                'relative z-20 aspect-video w-full object-cover brightness-60 transition-shadow group-hover:brightness-100 ',
               )}
             />
           )}
 
           {(title || description) && (
             <CardHeader>
+              {badge && <CardAction>{badge}</CardAction>}
               {title && <CardTitle>{title}</CardTitle>}
               {description && (
                 <CardDescription className='line-clamp-4'>{description}</CardDescription>
@@ -108,7 +115,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           )}
           {children && <CardContent>{children}</CardContent>}
           {footer && (
-            <CardFooter className='flex justify-between bg-accent/20 text-accent-foreground'>
+            <CardFooter className='flex justify-between border-t-[1px] bg-accent/20 text-accent-foreground dark:border-t-foreground/50 '>
               {footer}
             </CardFooter>
           )}

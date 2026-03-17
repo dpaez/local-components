@@ -25,7 +25,7 @@ export function App() {
         cta={{ label: 'Get Started', href: '/start' }}
         alignment='center'
       />
-      <div className='flex flex-col items-center justify-center mx-auto gap-4  text-center relative z-10 h-screen'>
+      <div className='relative z-10 mx-auto flex h-screen flex-col  items-center justify-center gap-4 text-center'>
         <Section background='primary' spacing='spaced'>
           <Heading as='h1' size='2xl'>
             Local Components

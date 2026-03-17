@@ -75,7 +75,10 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             checked={isDark}
             onCheckedChange={handleToggle}
-            className={cn(className)}
+            className={cn(
+              className,
+              'rounded-sm corner-bevel corner-bl-square corner-tr-square *:rounded-sm *:corner-bevel *:corner-bl-square *:corner-tr-square',
+            )}
             ref={ref as React.Ref<HTMLButtonElement>}
             {...props}
           />

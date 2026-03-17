@@ -24,5 +24,10 @@
   },
   "sortPackageJson": {
     "enabled": true
+  },
+  "sortTailwindcss": {
+    "stylesheet": "./styles/globals.css",
+    "functions": ["clsx", "cn"],
+    "preserveWhitespace": true
   }
 }

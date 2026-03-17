@@ -58,7 +58,7 @@ export const Outline: Story = {
 
 export const CTA: Story = {
   render: () => (
-    <div className='w-full h-full bg-primary-800 p-4 dark:bg-transparent'>
+    <div className='h-full w-full bg-primary-800 p-4 dark:bg-transparent'>
       <Button variant='cta'>Call to Action</Button>
     </div>
   ),
@@ -116,7 +116,7 @@ export const AsChild: Story = {
 
 export const KitchenSink: Story = {
   render: () => (
-    <div className='flex flex-col gap-6 items-start'>
+    <div className='flex flex-col items-start gap-6'>
       <div className='flex flex-wrap gap-2'>
         <Button variant='primary'>Primary</Button>
         <Button variant='secondary'>Secondary</Button>

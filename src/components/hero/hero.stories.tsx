@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Button } from '../button'
 import { Text, Heading } from '../typography'
 import { Hero } from './hero'
 
@@ -72,7 +73,7 @@ export const FullBleed: Story = {
 
 export const AlignmentShowcase: Story = {
   render: () => (
-    <div className='space-y-8 w-full'>
+    <div className='w-full space-y-8'>
       <Hero
         title='Left Aligned'
         subtitle='Perfect for text-heavy layouts with supporting content on the right.'
@@ -92,6 +93,39 @@ export const AlignmentShowcase: Story = {
   ),
 }
 
+export const CustomPositioning: Story = {
+  render: () => (
+    <Hero
+      className='relative flex h-full flex-1 flex-col justify-between p-4 lg:p-8'
+      contentClassName='flex-col h-full flex-1'
+    >
+      <>
+        <div className='space-between flex w-full items-center justify-between'>
+          <Heading as='h1' size='3xl'>
+            D E K A
+          </Heading>
+          <div className='flex space-x-4 text-sm'>
+            <Button variant='ghost' asChild>
+              <a href='/'>About</a>
+            </Button>
+            <Button variant='ghost' asChild>
+              <a href='/'>Blog</a>
+            </Button>
+            <Button variant='ghost' asChild>
+              <a href='/'>Contact</a>
+            </Button>
+          </div>
+        </div>
+        <div className='self-start'>
+          <Heading as='h3' size='xl'>
+            Developer / Entrepreneur / P2P Researcher / Sport Climber
+          </Heading>
+        </div>
+      </>
+    </Hero>
+  ),
+}
+
 export const WithBackgroundImage: Story = {
   args: {
     title: 'Hero with Background Image',
@@ -100,7 +134,7 @@ export const WithBackgroundImage: Story = {
       value: 'https://picsum.photos/seed/localcomponents/1920/1080',
     },
     children: (
-      <div className='p-8 bg-primary-500/10 bg-clip-padding rounded-md backdrop-filter backdrop-blur-sm text-primary-foreground border border-white/20'>
+      <div className='rounded-md border border-white/20 bg-primary-500/10 bg-clip-padding p-8 text-primary-foreground backdrop-blur-sm backdrop-filter'>
         This hero uses a high-quality image from a reliable placeholder service.
       </div>
     ),
@@ -174,7 +208,7 @@ export const Split: Story = {
     subtitle:
       'A two-column layout with content on the left and visual space on the right. The right column displays a gradient placeholder when no image is provided.',
     splitContent: (
-      <Text size='sm' className='bg-black/30 text-white/90 backdrop-blur-sm p-4 rounded-md'>
+      <Text size='sm' className='rounded-md bg-black/30 p-4 text-white/90 backdrop-blur-sm'>
         Split layout - add background image for visual content
       </Text>
     ),

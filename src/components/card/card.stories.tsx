@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Badge } from '../badge/badge'
 import { Button } from '../button/button'
 import { Card } from './card'
 
@@ -132,6 +133,7 @@ export const Complete: Story = {
       label: '2026',
       value: 'March',
     },
+    badge: <Badge variant='outline'>Featured</Badge>,
     image: {
       src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60',
       alt: 'Abstract gradient',

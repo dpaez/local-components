@@ -36,7 +36,7 @@ type Story = StoryObj<typeof Layout>
 export const Default: Story = {
   args: {
     children: (
-      <div className='p-8 bg-primary-500 text-primary-foreground'>
+      <div className='bg-primary-500 p-8 text-primary-foreground'>
         <h1 className='text-2xl font-bold'>Layout Content</h1>
         <p>This layout uses the default settings.</p>
       </div>
@@ -52,7 +52,7 @@ export const Default: Story = {
 export const FullWidth: Story = {
   args: {
     children: (
-      <div className='p-8 bg-muted'>
+      <div className='bg-muted p-8'>
         <h1 className='text-2xl font-bold'>Full Width Layout</h1>
         <p>This layout spans the full width.</p>
       </div>
@@ -63,10 +63,23 @@ export const FullWidth: Story = {
   },
 }
 
+export const CoolBorders: Story = {
+  render: () => (
+    <Layout maxWidth='full' defaultTheme='light' borders='lr'>
+      <div className='flex h-screen flex-1 flex-col items-center justify-center gap-4 '>
+        <div className='bezel bg-primary-600 p-4 text-primary-foreground dark:bg-secondary-600 '>
+          <h1 className='text-2xl font-bold'>Borders Layout</h1>
+          <p>This layout has cool borders.</p>
+        </div>
+      </div>
+    </Layout>
+  ),
+}
+
 export const Small: Story = {
   args: {
     children: (
-      <div className='p-8 bg-secondary-500 text-secondary-foreground rounded-lg'>
+      <div className='rounded-lg bg-secondary-500 p-8 text-secondary-foreground'>
         <h1 className='text-2xl font-bold'>Small Layout</h1>
         <p>This layout has a small max-width.</p>
       </div>
@@ -82,7 +95,7 @@ export const Small: Story = {
 export const WithDarkTheme: Story = {
   args: {
     children: (
-      <div className='p-8 bg-primary text-primary-foreground rounded-lg'>
+      <div className='rounded-lg bg-primary p-8 text-primary-foreground'>
         <h1 className='text-2xl font-bold'>Dark Theme Layout</h1>
         <p>This layout defaults to dark theme.</p>
       </div>

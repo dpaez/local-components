@@ -14,11 +14,11 @@ export default function CardMeta({ meta, children, className }: CardMetaProps) {
   return (
     <div
       data-slot='card-meta'
-      className={cn('rotate-180 p-2 [writing-mode:vertical-lr] bg-primary-700 inset-0', className)}
+      className={cn('inset-0 rotate-180 bg-primary-700 p-2 [writing-mode:vertical-lr]', className)}
     >
       {children}
       {!children && (
-        <div className='flex items-center justify-between gap-2'>
+        <div className='flex items-center justify-between gap-2 pb-2'>
           <CardMetaLabel>{meta.label}</CardMetaLabel>
           <Separator orientation='vertical' className=' w-px flex-1 bg-secondary-700/80' />
           <CardMetaValue>{meta.value}</CardMetaValue>
@@ -36,7 +36,7 @@ export function CardMetaLabel({
   className?: string
 }) {
   return (
-    <span className={cn('text-xs text-secondary font-semibold uppercase', className)}>
+    <span className={cn('text-xs font-semibold text-secondary uppercase', className)}>
       {children}
     </span>
   )
@@ -50,7 +50,7 @@ export function CardMetaValue({
   className?: string
 }) {
   return (
-    <span className={cn('text-xs text-secondary uppercase font-semibold', className)}>
+    <span className={cn('text-xs font-semibold text-secondary uppercase', className)}>
       {children}
     </span>
   )

@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@plugin '@toolwind/corner-shape';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -51,6 +52,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.922 0 0);
+  
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.81 0.1 252);
@@ -242,6 +244,17 @@
   50% {
     background-position: 100% 50%;
   }
+}
+
+.triangle::before {
+  clip-path: polygon(1.9% 0%,  50% 40%,  100% 0%,  100% 100%, 50% 60%,  0% 101.8%);
+}
+
+.bezel {
+  corner-shape: bevel;
+  border-bottom-right-radius: var(--radius);
+  border: 3px solid var(--primary-700);
+  text-box: cap alphabetic;
 }
 
 .mesh-background {

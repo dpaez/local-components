@@ -29,7 +29,7 @@ const heroVariants = cva('relative w-full flex overflow-hidden', {
 
 export interface HeroProps
   extends Omit<React.HTMLAttributes<HTMLElement>, 'title'>, VariantProps<typeof heroVariants> {
-  title: string | React.ReactNode
+  title?: string | React.ReactNode
   subtitle?: string | React.ReactNode
   cta?: {
     label: string
@@ -41,6 +41,7 @@ export interface HeroProps
   }
   asChild?: boolean
   splitContent?: React.ReactNode | string
+  contentClassName?: string
 }
 
 const Hero = React.forwardRef<HTMLElement, HeroProps>(
@@ -56,6 +57,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
       asChild = false,
       children,
       splitContent,
+      contentClassName,
       ...props
     },
     ref,
@@ -88,30 +90,33 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
     const content = (
       <div
         className={cn(
-          'container w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-center',
+          'relative z-10 container mx-auto flex w-full items-center px-4 sm:px-6 lg:px-8',
           'py-16 md:py-24',
+          contentClassName,
         )}
       >
         <div
           className={cn(
-            ' w-full flex flex-col items-center justify-center',
+            ' flex w-full flex-col items-center justify-center',
             alignment === 'center' && 'mx-auto text-center',
             alignment === 'left' && 'items-start',
             alignment === 'right' && 'items-end',
+            className,
           )}
         >
-          <Heading
-            as='h1'
-            size='3xl'
-            className={cn(
-              'mb-4',
-              background?.type === 'image' && variant !== 'split' && 'text-white drop-shadow-lg',
-              background?.type === 'color' && 'text-foreground',
-            )}
-          >
-            {title}
-          </Heading>
-
+          {title && (
+            <Heading
+              as='h1'
+              size='3xl'
+              className={cn(
+                'mb-4',
+                background?.type === 'image' && variant !== 'split' && 'text-white drop-shadow-lg',
+                background?.type === 'color' && 'text-foreground',
+              )}
+            >
+              {title}
+            </Heading>
+          )}
           {subtitle && (
             <Text
               size='lg'
@@ -158,12 +163,12 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
           ref={ref}
           className={cn(
             heroVariants({ variant, alignment }),
-            'grid grid-cols-1 md:grid-cols-2 flex-col',
+            'grid grid-cols-1 flex-col md:grid-cols-2',
             className,
           )}
           {...props}
         >
-          <div className='flex items-center justify-center md:justify-start md:h-full p-2 md:p-8'>
+          <div className='flex items-center justify-center p-2 md:h-full md:justify-start md:p-8'>
             {content}
           </div>
 
@@ -179,8 +184,8 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
           )}
 
           {!background?.type && (
-            <div className='flex relative h-full radial-gradient-background'>
-              <div className='md:absolute inset-0 flex items-center justify-center p-4 md:p-2'>
+            <div className='radial-gradient-background relative flex h-full'>
+              <div className='inset-0 flex items-center justify-center p-4 md:absolute md:p-2'>
                 {splitContent}
               </div>
             </div>
@@ -196,7 +201,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
         ref={ref}
         className={cn(
           heroVariants({ variant, alignment }),
-          'items-center justify-center relative',
+          'relative items-center justify-center',
           className,
         )}
         style={getBackgroundStyles()}

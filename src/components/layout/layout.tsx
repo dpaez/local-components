@@ -11,6 +11,7 @@ export interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultTheme?: Theme
   storageKey?: string
   noise?: boolean
+  borders?: 'lr' | 'tb' | 'all' | 'none'
 }
 
 const maxWidthClasses = {
@@ -39,6 +40,7 @@ const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
       defaultTheme = 'light',
       storageKey = 'local-components-theme',
       noise = false,
+      borders = 'none',
       ...props
     },
     ref,
@@ -49,17 +51,29 @@ const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
           data-slot='layout'
           ref={ref}
           className={cn(
-            'min-h-screen w-full',
+            'relative min-h-screen w-full',
             maxWidthClasses[maxWidth],
             paddingClasses[padding],
             centered && 'mx-auto',
             noise &&
-              'noise-bg before:fixed before:left-0 before:top-0 before:content-[""] before:w-full before:h-full before:z-50 before:pointer-events-none before:opacity-20',
+              'noise-bg before:pointer-events-none  before:fixed before:top-0 before:left-0 before:z-50 before:h-full before:w-full before:opacity-20 before:content-[""]',
+            borders === 'lr' &&
+              'content-box px-[2px] before:absolute before:top-0 before:-left-[2%] before:-z-1 before:h-full before:w-[102%] before:bg-linear-0 before:from-primary-200 before:from-2% before:via-primary-800 before:via-50% before:to-primary-200 before:to-98% before:content-[""] dark:before:from-secondary-200 dark:before:via-secondary-300 dark:before:to-secondary-200',
+            borders === 'lr' && 'triangle before:bg-origin-content',
+            borders === 'tb' && 'border-t border-b border-secondary-700',
+            borders === 'all' && 'border border-secondary-700',
             className,
           )}
           {...props}
         >
-          <div className={cn(noise && 'z-10 relative')}>{children}</div>
+          <div
+            className={cn(
+              noise && 'relative z-10',
+              borders === 'lr' && 'min-h-screen bg-background',
+            )}
+          >
+            {children}
+          </div>
         </div>
       </ThemeProvider>
     )

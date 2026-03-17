@@ -124,7 +124,7 @@ export const DismissibleVariants: Story = {
 
 export const KitchenSink: Story = {
   render: () => (
-    <div className='flex flex-col gap-4 items-start'>
+    <div className='flex flex-col items-start gap-4'>
       <div className='flex flex-wrap gap-2'>
         <Badge>Default</Badge>
         <Badge variant='secondary'>Secondary</Badge>
