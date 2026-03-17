@@ -1,0 +1,15 @@
+{
+  "typescript.experimental.useTsgo": true,
+  "oxc.typeAware": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  },
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "oxc.fmt.configPath": "oxfmt.json",
+  "oxc.lint.configPath": "oxlint.json",
+  "editor.formatOnSave": true,
+  "oxc.path.node": "/Users/deka/.nvm/versions/node/v25.2.1/bin/bun",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  }
+}

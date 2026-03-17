@@ -905,3 +905,136 @@ Task 3 (Package) ────────┼───────────┼
 - shadcn Switch: 1 → 2 → 6 → 18
 - Component Fixes: All previous → 16
 
+
+---
+
+## Phase 7: Portfolio Page Story
+
+### Task 19: Portfolio Data Document
+
+**Overview**: Fetch and structure professional data from dpaez.github.io into a reusable markdown document stored alongside the portfolio stories that consume it.
+
+**Deliverable**:
+- `src/portfolio/portfolio-data.md` containing structured data:
+  - Personal info (Diego "DEKA" Paez, Tierra del Fuego, Patagonia, Argentina, UNLP)
+  - Professional experience (GEUT co-founder '18, SHER product Q4 2020, Despegar, LIFIA, UNLP professor)
+  - Technical skills (JavaScript, Node.js, P2P, Distributed Systems, React, HCI)
+  - Talks & workshops (NodeConf Colombia 2019 "Building Up on Dat", Argentina 2018 dat-workshop, Argentina 2016 "Micro (hapi) ness", Node Interactive NA 2016 "Multimodal Interactions & JS")
+  - Contact information (diego at geutstudio . com)
+  - Links (GitHub: dpaez, Twitter: carax, GEUT, SHER)
+  - Areas of interest (JavaScript, Node.js, Distributed Systems, P2P, HCI, React, Fullstack)
+
+**Acceptance Criteria**:
+- [x] Data fetched from dpaez.github.io ✅
+- [x] Structured markdown at `src/portfolio/portfolio-data.md` ✅
+- [x] Data is reusable for all 3 portfolio variations ✅
+- [x] All sections from the site included ✅
+- [x] Ready for component mapping ✅
+- [x] Placeholder images referenced (picsum.photos with descriptive seeds) ✅
+
+**Dependencies**: None (can start immediately)
+
+**Out of Scope**:
+- Actual image downloads (use placeholders)
+- Dynamic data fetching (static document only)
+- Multiple data formats (markdown only)
+
+**Tips**:
+- Use descriptive seeds for picsum.photos (e.g., `seed=deka-nodeconf`, `seed=geut-logo`)
+- Structure with clear headers for easy parsing
+- Include all professional highlights
+- Keep formatting clean for easy data extraction
+
+---
+
+### Task 20: Portfolio Variation 1 - "Minimalist Engineer"
+
+**Overview**: Create the first portfolio page variation as a Storybook story with a clean, DASEIN-inspired aesthetic featuring strong typography and section-based layout.
+
+**Design Approach**:
+- **Inspiration**: DASEIN (roicort.github.io/dasein)
+- **Skills Applied**: normalize, polish
+- **Aesthetic**: Ultra-clean, generous whitespace, typographic hierarchy
+- **Layout**: Single-column with anchored sections
+- **Colors**: Primarily monochromatic with strategic primary accent usage
+- **Animation Level**: 1-3 (static with CSS hover states)
+- **Components Used**: Hero, Section, Typography (Heading, Text), Card, Button, Toggle
+
+**Features**:
+- Full-bleed hero with subtle gradient background
+- Sticky navigation with section anchor links
+- Timeline-style experience section
+- Skills displayed as minimal text tags
+- Clean contact section with social links
+- Theme toggle integration
+
+**Deliverable**:
+- `src/portfolio/minimalist.stories.tsx` - Storybook story
+- Uses data from `src/portfolio/portfolio-data.md`
+- Placeholder images via picsum.photos
+
+**Acceptance Criteria**:
+- [x] Storybook story renders correctly ✅
+- [x] Single page layout with anchored sections ✅
+- [x] Responsive design (mobile-first) ✅
+- [x] Uses components from local-components ✅
+- [x] Respects globals.css theme variables ✅
+- [x] Theme toggle works (light/dark) ✅
+- [x] DASEIN-inspired clean aesthetic (normalize skill) ✅
+- [x] Polish skill applied (consistent spacing, refined details) ✅
+- [x] No emojis (design-taste-frontend compliance) ✅
+- [x] Geist or Satoshi typography ✅
+
+**Dependencies**:
+- Task 19 (Portfolio data)
+- All Phase 1-6 components
+
+**Out of Scope**:
+- Next.js pages (Storybook only)
+- Complex animations
+- External data fetching
+- Custom fonts (use system fallbacks)
+
+**Tips**:
+- Use `normalize` skill for consistent spacing and typography
+- Apply `polish` skill for refined details
+- Use `min-h-[100dvh]` not `h-screen` for hero
+- Test both light and dark themes
+- Keep layout predictable (design variance 1-3)
+
+---
+
+## Updated Summary
+
+**Total Tasks**: 20
+
+**Phase Breakdown**:
+- Phase 1 (Foundation): 3 tasks (config, theme, package) ✅
+- Phase 2 (High Priority Components): 3 tasks (Button, Layout, Toggle) ✅
+- Phase 3 (Medium Priority Components): 4 tasks (Typography, Card, Section, Hero) ✅
+- Phase 4 (Storybook): 2 tasks ✅
+- Phase 5 (Tooling & Build): 3 tasks ✅
+- Phase 6 (Improve Components): 3 tasks (16, 17, 18) ✅
+- **Phase 7 (Portfolio Variations): 2 tasks (19, 20)**
+
+**New Files to Create**:
+1. `src/portfolio/portfolio-data.md` (shared data)
+2. `src/portfolio/minimalist.stories.tsx`
+
+**Skills Applied by Variation**:
+- Minimalist Engineer: normalize, polish
+
+**Dependencies Graph**:
+```
+Task 19 (Portfolio Data)
+        │
+        └───> Task 20 (Minimalist Engineer)
+
+Task 1-18 (All Previous Components)
+        │
+        └───> Task 20 (Portfolio Story)
+```
+
+**Critical Paths**:
+- Portfolio Story: 1 → 2 → 19 → 20
+

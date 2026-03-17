@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Badge } from '../badge/badge'
 import { Button } from '../button/button'
 import { Card } from './card'
 
@@ -56,6 +57,46 @@ export const WithImage: Story = {
       src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60',
       alt: 'Abstract gradient',
     },
+    variant: 'ghost',
+  },
+}
+
+export const SquareWithImage: Story = {
+  args: {
+    title: 'Square Card with Image',
+    description: 'This card includes an image at the top.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60',
+      alt: 'Abstract gradient',
+    },
+    variant: 'square',
+  },
+}
+
+export const WithMeta: Story = {
+  args: {
+    title: 'Square Card with Image',
+    description: 'This card includes an image at the top.',
+    image: {
+      src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60',
+      alt: 'Abstract gradient',
+    },
+    meta: {
+      label: '2026',
+      value: 'March',
+    },
+  },
+}
+
+export const WithMetaNoImage: Story = {
+  args: {
+    title: 'Square Card with Meta',
+    description:
+      'This card includes some meta on the side. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    meta: {
+      label: '2026',
+      value: 'March',
+    },
   },
 }
 
@@ -86,12 +127,22 @@ export const LinkCard: Story = {
 export const Complete: Story = {
   args: {
     title: 'Complete Card',
-    description: 'A card with all features enabled.',
+    description:
+      'A card with all features enabled. This is a longer description to test the card layout. And even some more text to test the layout. With some new features!',
+    meta: {
+      label: '2026',
+      value: 'March',
+    },
+    badge: <Badge variant='outline'>Featured</Badge>,
     image: {
       src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60',
       alt: 'Abstract gradient',
     },
-    footer: <Button>Learn More</Button>,
+    footer: (
+      <Button variant='outline' className='w-full'>
+        Learn More
+      </Button>
+    ),
     variant: 'default',
   },
 }

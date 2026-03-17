@@ -10,6 +10,8 @@ export interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
   centered?: boolean
   defaultTheme?: Theme
   storageKey?: string
+  noise?: boolean
+  borders?: 'lr' | 'tb' | 'all' | 'none'
 }
 
 const maxWidthClasses = {
@@ -37,6 +39,8 @@ const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
       centered = false,
       defaultTheme = 'light',
       storageKey = 'local-components-theme',
+      noise = false,
+      borders = 'none',
       ...props
     },
     ref,
@@ -47,15 +51,29 @@ const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
           data-slot='layout'
           ref={ref}
           className={cn(
-            'min-h-screen w-full',
+            'relative min-h-screen w-full',
             maxWidthClasses[maxWidth],
             paddingClasses[padding],
             centered && 'mx-auto',
+            noise &&
+              'noise-bg before:pointer-events-none  before:fixed before:top-0 before:left-0 before:z-50 before:h-full before:w-full before:opacity-20 before:content-[""]',
+            borders === 'lr' &&
+              'content-box px-[2px] before:absolute before:top-0 before:-left-[2%] before:-z-1 before:h-full before:w-[102%] before:bg-linear-0 before:from-primary-200 before:from-2% before:via-primary-800 before:via-50% before:to-primary-200 before:to-98% before:content-[""] dark:before:from-secondary-200 dark:before:via-secondary-300 dark:before:to-secondary-200',
+            borders === 'lr' && 'triangle before:bg-origin-content',
+            borders === 'tb' && 'border-t border-b border-secondary-700',
+            borders === 'all' && 'border border-secondary-700',
             className,
           )}
           {...props}
         >
-          {children}
+          <div
+            className={cn(
+              noise && 'relative z-10',
+              borders === 'lr' && 'min-h-screen bg-background',
+            )}
+          >
+            {children}
+          </div>
         </div>
       </ThemeProvider>
     )

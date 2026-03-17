@@ -71,10 +71,7 @@ export function ThemeProvider({
     }
   }, [theme, mounted])
 
-  // Listen for system preference changes (only if theme is 'system')
   useEffect(() => {
-    if (!mounted || theme !== 'system') return
-
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     const handleChange = (e: MediaQueryListEvent) => {

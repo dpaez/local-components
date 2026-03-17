@@ -57,10 +57,11 @@ export const Outline: Story = {
 }
 
 export const CTA: Story = {
-  args: {
-    children: 'Call to Action',
-    variant: 'cta',
-  },
+  render: () => (
+    <div className='h-full w-full bg-primary-800 p-4 dark:bg-transparent'>
+      <Button variant='cta'>Call to Action</Button>
+    </div>
+  ),
   parameters: {
     docs: {
       description: {
@@ -79,11 +80,11 @@ export const Disabled: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col items-start gap-4">
-      <div className="flex items-center gap-4">
-        <Button size="sm">Small</Button>
-        <Button size="medium">Medium (Default)</Button>
-        <Button size="lg">Large</Button>
+    <div className='flex flex-col items-start gap-4'>
+      <div className='flex items-center gap-4'>
+        <Button size='sm'>Small</Button>
+        <Button size='medium'>Medium (Default)</Button>
+        <Button size='lg'>Large</Button>
       </div>
     </div>
   ),
@@ -115,22 +116,24 @@ export const AsChild: Story = {
 
 export const KitchenSink: Story = {
   render: () => (
-    <div className="flex flex-col gap-6 items-start">
-      <div className="flex flex-wrap gap-2">
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="cta">CTA</Button>
+    <div className='flex flex-col items-start gap-6'>
+      <div className='flex flex-wrap gap-2'>
+        <Button variant='primary'>Primary</Button>
+        <Button variant='secondary'>Secondary</Button>
+        <Button variant='ghost'>Ghost</Button>
+        <Button variant='outline'>Outline</Button>
+        <Button variant='cta'>CTA</Button>
       </div>
-      <div className="flex flex-wrap gap-2">
-        <Button size="sm">Small</Button>
-        <Button size="medium">Medium</Button>
-        <Button size="lg">Large</Button>
+      <div className='flex flex-wrap gap-2'>
+        <Button size='sm'>Small</Button>
+        <Button size='medium'>Medium</Button>
+        <Button size='lg'>Large</Button>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className='flex flex-wrap gap-2'>
         <Button icon={<ArrowRight />}>Icon Start</Button>
-        <Button icon={<ArrowRight />} iconPosition="end">Icon End</Button>
+        <Button icon={<ArrowRight />} iconPosition='end'>
+          Icon End
+        </Button>
       </div>
     </div>
   ),

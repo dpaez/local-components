@@ -18,7 +18,11 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       <ShadcnBadge
         ref={ref}
         variant={variant}
-        className={cn('inline-flex items-center gap-1', dismissible && 'pr-1', className)}
+        className={cn(
+          'inline-flex items-center gap-1 rounded-sm corner-bevel corner-bl-square corner-tr-square',
+          dismissible && 'pr-1',
+          className,
+        )}
         {...props}
       >
         {icon && <span className='flex items-center'>{icon}</span>}
@@ -30,7 +34,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
               e.stopPropagation()
               onDismiss?.()
             }}
-            className='ml-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full hover:bg-black/10 dark:hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+            className='ml-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full hover:bg-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:bg-white/10'
             aria-label='Remove badge'
           >
             <X className='h-3 w-3' />

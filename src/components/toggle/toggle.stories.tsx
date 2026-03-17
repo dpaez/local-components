@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Lightbulb, LightbulbOff } from 'lucide-react'
 
 import { Layout } from '../layout/layout'
 import { Toggle } from './toggle'
-import { Lightbulb, LightbulbOff } from 'lucide-react'
 
 const meta: Meta<typeof Toggle> = {
   title: 'Components/Toggle',

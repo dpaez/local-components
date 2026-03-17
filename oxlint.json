@@ -14,15 +14,15 @@
   "env": {
     "browser": true
   },
-  "ignorePatterns": [
-    "dist/**",
-    "storybook-static/**",
-    "node_modules/**"
-  ],
+  "ignorePatterns": ["dist/**", "storybook-static/**", "node_modules/**"],
   "rules": {
     "no-debugger": "error",
     "no-duplicate-imports": "error",
     "prefer-const": "warn",
     "oxc/no-barrel-file": "error"
+  },
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
   }
 }
