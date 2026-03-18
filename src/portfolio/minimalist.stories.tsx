@@ -21,8 +21,8 @@ const MinimalistEngineerPortfolio = () => {
     <Layout defaultTheme='light' className='min-h-screen' noise maxWidth='full' padding='none'>
       {/* Hero Section - Full bleed with subtle gradient */}
       <Hero
-        title='Diego Paez'
-        subtitle='Software Engineer · Co-founder at GEUT · P2P Systems Architect'
+        title='John Doe'
+        subtitle='Software Engineer · Co-founder at Company · P2P Systems Architect'
         alignment='center'
         background={{
           type: 'gradient',
@@ -38,24 +38,24 @@ const MinimalistEngineerPortfolio = () => {
       <Section id='about' title='About' spacing='default'>
         <div className='mx-auto max-w-3xl'>
           <Lead className='mb-8'>
-            Hi, I am Diego also known as DEKA | DK (he/him). Class '85. Natural from Tierra del
-            Fuego, Patagonia, Argentina.
+            Hi, I am John Doe also known as Mr Pmosh (he/him). Class '83. Natural from Patagonia,
+            Argentina.
           </Lead>
 
           <Text className='mb-6 text-muted-foreground'>
-            I have a Licentiate's Degree in Computer Science from the National University of La
-            Plata, UNLP - Informatica.
+            I have a Licentiate's Degree in Computer Science from the EDU
           </Text>
 
           <Text className='mb-6 text-muted-foreground'>
-            In 2018, I co-founded GEUT, an exclusive software consultancy company and a Lab for P2P
-            projects. A few years later in Q4 2020, started SHER. GEUT's flagship P2P product.
+            In 2018, I co-founded Company, an exclusive software consultancy company and a Lab for
+            P2P projects. A few years later in Q4 2020, started Product. Company's flagship P2P
+            product.
           </Text>
 
           <Blockquote>"Always looking to mix ideas, like an alchemist for thoughts."</Blockquote>
 
           <Text className='text-muted-foreground'>
-            My current goal is around learning and shaping the business-side of SHER, the
+            My current goal is around learning and shaping the business-side of Product, the
             decentralized live audio platform.
           </Text>
         </div>
@@ -64,28 +64,29 @@ const MinimalistEngineerPortfolio = () => {
       {/* Experience Section - Timeline style */}
       <Section id='experience' title='Experience' background='alternate' spacing='spaced'>
         <div className='mx-auto max-w-3xl space-y-8'>
-          {/* GEUT */}
+          {/* Company */}
           <div className='relative border-l-2 border-border pl-8'>
             <div className='absolute top-0 -left-2 h-4 w-4 rounded-full bg-primary' />
             <Heading as='h3' size='lg' className='mb-2'>
-              Co-founder at GEUT
+              Co-founder at Company
             </Heading>
             <Text size='sm' color='muted' className='mb-4'>
               2018 - Present
             </Text>
             <Text className='text-muted-foreground'>
-              Co-founded GEUT, an exclusive software consultancy company and a laboratory for
-              peer-to-peer (P2P) projects. In Q4 2020, launched SHER as GEUT's flagship P2P product.
+              Co-founded Company, an exclusive software consultancy company and a laboratory for
+              peer-to-peer (P2P) projects. In Q4 2020, launched Product as Company's flagship P2P
+              product.
             </Text>
             <div className='mt-4 flex gap-2'>
               <Button variant='ghost' size='sm' asChild>
-                <a href='https://geutstudio.com' target='_blank' rel='noopener noreferrer'>
-                  Visit GEUT
+                <a href='https://example.com' target='_blank' rel='noopener noreferrer'>
+                  Visit Company
                 </a>
               </Button>
               <Button variant='ghost' size='sm' asChild>
                 <a href='https://sher.geutstudio.com' target='_blank' rel='noopener noreferrer'>
-                  Explore SHER
+                  Explore Product
                 </a>
               </Button>
             </div>
@@ -99,21 +100,21 @@ const MinimalistEngineerPortfolio = () => {
             </Heading>
             <ul className='mt-4 space-y-4'>
               <li>
-                <Text className='font-medium'>Fullstack Engineer at Despegar</Text>
+                <Text className='font-medium'>Fullstack Engineer at Another Company</Text>
                 <Text size='sm' color='muted'>
                   Worked on a components-as-a-service project, creating components rendered and
                   consumed by different teams.
                 </Text>
               </li>
               <li>
-                <Text className='font-medium'>Assistant Professor at UNLP</Text>
+                <Text className='font-medium'>Assistant Professor at EDU</Text>
                 <Text size='sm' color='muted'>
                   Taught "User Centered Design" and "Mobile Devices' Interfaces". Fantastic
                   experience preparing lectures and practical exercises.
                 </Text>
               </li>
               <li>
-                <Text className='font-medium'>Researcher at LIFIA</Text>
+                <Text className='font-medium'>Researcher at Special Lab</Text>
                 <Text size='sm' color='muted'>
                   HCI and user-centered design research.
                 </Text>
@@ -208,28 +209,28 @@ const MinimalistEngineerPortfolio = () => {
           <Text className='mb-6 text-lg'>You can reach me at</Text>
 
           <Heading as='h3' size='lg' className='mb-8 font-mono'>
-            diego@geutstudio.com
+            contact@geutstudio.com
           </Heading>
 
           <div className='flex flex-wrap justify-center gap-4'>
             <Button variant='outline' asChild>
-              <a href='https://github.com/dpaez' target='_blank' rel='noopener noreferrer'>
+              <a href='https://github.com/handle' target='_blank' rel='noopener noreferrer'>
                 GitHub
               </a>
             </Button>
             <Button variant='outline' asChild>
-              <a href='https://twitter.com/carax' target='_blank' rel='noopener noreferrer'>
+              <a href='https://twitter.com/username' target='_blank' rel='noopener noreferrer'>
                 Twitter
               </a>
             </Button>
             <Button variant='outline' asChild>
               <a href='https://geutstudio.com' target='_blank' rel='noopener noreferrer'>
-                GEUT
+                Company
               </a>
             </Button>
             <Button variant='outline' asChild>
               <a href='https://sher.geutstudio.com' target='_blank' rel='noopener noreferrer'>
-                SHER
+                Product
               </a>
             </Button>
           </div>
@@ -240,7 +241,7 @@ const MinimalistEngineerPortfolio = () => {
       <footer className='border-t px-4 py-8 sm:px-6 lg:px-8'>
         <div className='mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row'>
           <Text size='sm' color='muted'>
-            {currentYear} Diego Paez. All rights reserved.
+            {currentYear} John Doe. All rights reserved.
           </Text>
 
           <div className='flex items-center gap-4'>
