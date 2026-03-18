@@ -1,22 +1,20 @@
-# Portfolio Data - Diego "DEKA" Paez
+# Portfolio Data - John Doe
 
 This document contains structured professional data for portfolio page variations.
-Source: https://dpaez.github.io
 
 ---
 
 ## Personal Information
 
-**Name**: Diego Paez  
-**Alias**: DEKA | DK  
+**Name**: John Doe  
+**Alias**: Mr Pmosh  
 **Pronouns**: he/him  
-**Birth Year**: 1985  
-**Location**: Tierra del Fuego, Patagonia, Argentina
+**Birth Year**: 1983  
+**Location**: Patagonia
 
 **Education**:
 
 - Licentiate's Degree in Computer Science
-- National University of La Plata (UNLP - Informática)
 
 **Philosophy**:
 
@@ -26,39 +24,37 @@ Source: https://dpaez.github.io
 
 ## Professional Experience
 
-### GEUT (Co-founder)
+### Special Company (Co-founder)
 
 **Period**: 2018 - Present  
 **Role**: Co-founder  
 **Location**: Software consultancy company and Lab for P2P projects
 
-GEUT is an exclusive software consultancy company and a laboratory for peer-to-peer (P2P) projects. In Q4 2020, launched SHER as GEUT's flagship P2P product.
+Special Company is an exclusive software consultancy company and a laboratory for peer-to-peer (P2P) projects. In Q4 2020, launched PRODUCT as Special Company's flagship P2P product.
 
 **Links**:
 
 - Website: https://geutstudio.com
-- SHER: https://sher.geutstudio.com
-- Blog: https://sher.geutstudio.com/blog/mission/
 
-### SHER (Product)
+### PRODUCT
 
-**Period**: Q4 2020 - Present  
+**Period**: Q4 2020 - Q4 2023  
 **Role**: Product Development & Business Strategy  
 **Description**: Decentralized live audio platform
 
-Current goal: Learning and shaping the business-side of SHER.
+Current goal: Learning and shaping the business-side of PRODUCT.
 
-### Despegar
+### Another Company
 
 **Role**: Fullstack Engineer  
 **Key Project**: Components as a Service - Creating components that were rendered and consumed by different teams across the company.
 
-### LIFIA (Research Lab)
+### Special Lab (Research Lab)
 
 **Role**: Researcher  
 **Focus**: HCI and user-centered design research
 
-### UNLP (Alma Mater)
+### EDU (Alma Mater)
 
 **Role**: Assistant Professor  
 **Subjects**: User Centered Design, Mobile Devices' Interfaces  
@@ -89,7 +85,7 @@ Current goal: Learning and shaping the business-side of SHER.
 
 **Talk**: "Building Up on Dat"  
 **Topics**: dat, decentralization, p2p, ecosystem  
-**Photo**: https://picsum.photos/seed/deka-nodeconf-colombia-2019/800/600  
+**Photo**: https://picsum.photos/seed/123456/800/600  
 **Link**: https://github.com/geut/building-up-on-dat
 
 ### NodeConf Argentina 2018
@@ -97,14 +93,14 @@ Current goal: Learning and shaping the business-side of SHER.
 **Workshop**: "dat-workshop"  
 **People**: Martin Acosta and Diego Paez  
 **Topics**: dat, p2p, chat app  
-**Photo**: https://picsum.photos/seed/dat-workshop-2018/800/600  
+**Photo**: https://picsum.photos/seed/654321/800/600  
 **Link**: https://github.com/geut/dat-workshop
 
 ### NodeConf Argentina 2016
 
 **Talk**: "Micro (hapi) ness"  
 **Topics**: microservices, nodejs, p2p, hapijs  
-**Photo**: https://picsum.photos/seed/nodeconf-argentina-2016/800/600
+**Photo**: https://picsum.photos/seed/990087/800/600
 
 ### Node Interactive North America 2016
 
@@ -130,17 +126,17 @@ Based on previous work experiences and research, spanning from fullstack develop
 
 ## Contact
 
-**Email**: diego at geutstudio dot com  
-**Format**: diego@geutstudio.com
+**Email**: contact at geutstudio dot com  
+**Format**: contact@geutstudio.com
 
 ---
 
 ## Social Links
 
-- **GitHub**: https://github.com/dpaez
-- **Twitter**: https://twitter.com/carax
-- **GEUT**: https://geutstudio.com
-- **SHER**: https://sher.geutstudio.com
+- **GitHub**: https://github.com/handle
+- **Twitter**: https://twitter.com/username
+- **SPECIAL COMPANY**: https://example.com
+- **PRODUCT**: https://sher.fm
 
 ---
 
@@ -166,19 +162,17 @@ Use these placeholder URLs for portfolio variations:
 
 ### Project Images
 
-- GEUT Logo/Visual: `https://picsum.photos/seed/geut-studio/600/400`
-- SHER Product: `https://picsum.photos/seed/sher-audio/600/400`
-- Despegar: `https://picsum.photos/seed/despegar-travel/600/400`
-- UNLP Campus: `https://picsum.photos/seed/unlp-campus/600/400`
+- Company: `https://picsum.photos/seed/geut-studio/600/400`
+- Product: `https://picsum.photos/seed/sher-audio/600/400`
+- Another Company: `https://picsum.photos/seed/despegar-travel/600/400`
+- UNI: `https://picsum.photos/seed/unlp-campus/600/400`
 
 ---
 
 ## Usage Notes
 
-This data document serves as the single source of truth for all three portfolio variations:
+This data document serves as the single source of truth for all portfolio variations:
 
 1. **Minimalist Engineer** (Task 20): Use personal info, experience timeline, clean skills list
-2. **Card Grid Portfolio** (Task 21): Use all sections, emphasize talks with images, card-based layout
-3. **Creative Studio** (Task 22): Use all content, focus on visual impact, animations, creative presentation
 
-All variations should respect the theme colors defined in globals.css while being original in their layout and presentation approach.
+Also check docs/DESIGN.md
