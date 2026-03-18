@@ -35,7 +35,61 @@
 
 ---
 
-## 2. Color Palette
+## 2. Visual Language: Technical Geometric Aesthetic
+
+The components embody a **Technical Geometric** approach with **sci-fi minimal** influences. This visual language creates an engineered, digital interface aesthetic through precise geometric patterns and strategic angular details.
+
+**This aesthetic is what differentiates local-components from generic UI libraries.**
+
+### Core Principles
+
+1. **Geometric Precision**: Sharp angles, bevels, and calculated corner treatments
+2. **Mixed Corner Treatments**: Strategic combination of `rounded` and `square` corners on single elements
+3. **Minimal Borders**: Thin, precise borders (`rounded-xs`) that feel technical rather than decorative
+4. **Constructivist Influence**: Components feel like they're part of a digital machine or interface system
+
+### Current Implementations
+
+**Toggle (Switch variant)**: `corner-bevel` with `corner-bl-square corner-tr-square` - asymmetric geometric treatment
+
+**Badge**: `rounded-sm corner-bevel corner-bl-square corner-tr-square` - technical precision with bevel accents
+
+**Blockquote**: Gradient border with `corner-bevel` on container and inner element - creates depth through geometric framing
+
+**Code**: `corner-square corner-tl-bevel` - asymmetric corner mixing, monospace text reinforces technical aesthetic
+
+**Cards**: `corner-bl-square corner-br-bevel corner-tl-bevel corner-tr-square` - complex geometric composition with mixed treatments
+
+### Allowed Patterns
+
+**Gradients**: Technical gradients are allowed (e.g., deep-space style using theme colors):
+```css
+background: linear-gradient(135deg, var(--primary-600) 0%, var(--background) 50%, var(--secondary-400) 100%);
+```
+
+**Geometric Connectors**: Sharp angles as decorative elements between sections
+
+**Bevel Borders**: Using `corner-bevel` from `@toolwind/corner-shape` plugin for technical edge treatment
+
+**Asymmetric Corners**: Mixing `corner-*-square` and `corner-*-bevel` on the same element for constructed look
+
+**Thin Precise Lines**: 1px borders with specific purpose, not decoration
+
+### For New Components
+
+**AI assistants MUST extend this Technical Geometric language when creating new components:**
+
+- Experiment with asymmetric corner combinations (e.g., `corner-tl-bevel corner-br-square`)
+- Use bevel treatments for emphasis on key interactive elements
+- Incorporate sharp angles as decorative connectors or section transitions
+- Maintain the "engineered interface" aesthetic - components should feel precision-manufactured
+- Reference existing components for corner treatment patterns
+
+**Growth Mindset**: This visual language should evolve. Use geometric patterns as a foundation and invent new combinations. The Technical Geometric aesthetic is our primary differentiator.
+
+---
+
+## 3. Color Palette
 
 ### Base Colors
 
@@ -94,7 +148,7 @@
 
 ---
 
-## 3. Typography System
+## 4. Typography System
 
 ### Font Stack
 
@@ -139,7 +193,7 @@
 
 ---
 
-## 4. Component Usage Guide
+## 5. Component Usage Guide
 
 ### When to Use Which Component
 
@@ -206,7 +260,7 @@
 
 ---
 
-## 5. Design Principles
+## 6. Design Principles
 
 ### Principle 1: Minimalistic Approach
 **Let content breathe.**
@@ -251,7 +305,7 @@
 
 ---
 
-## 6. Inspiration & References
+## 7. Inspiration & References
 
 ### DASEIN (roicort.github.io/dasein)
 
@@ -283,7 +337,7 @@ When implementing features:
 
 ---
 
-## 7. Anti-Patterns (AVOID)
+## 8. Anti-Patterns (AVOID)
 
 ### Visual Anti-Patterns
 
@@ -299,6 +353,19 @@ When implementing features:
 | Complex flexbox percentage math | CSS Grid (`grid-cols-* gap-*`) |
 | Saturated colors (>80%) | Muted, professional color palette |
 | Decorative patterns/textures | Clean, solid backgrounds |
+
+### Geometric Anti-Patterns (Critical for Visual Identity)
+
+| AVOID | PREFER |
+|-------|--------|
+| Organic shapes, fluid curves, blob shapes | Sharp angles, bevels, geometric connectors |
+| Uniform rounded corners on all elements | Strategic mixing of `corner-*-square` and `corner-*-bevel` |
+| Thick decorative borders | Thin technical borders (1px) with purpose |
+| Soft edges and gradients everywhere | Constructed forms with geometric precision |
+| Rainbow gradients, multi-color transitions | Technical gradients using theme colors only |
+| Asymmetric layouts without geometric intent | Geometric asymmetry with calculated corner treatments |
+| Rounded-full on all buttons | `rounded-xs` or `corner-bevel` for technical aesthetic |
+| Decorative corner flourishes | Functional bevels and angles |
 
 ### Code Anti-Patterns
 
@@ -324,7 +391,7 @@ When implementing features:
 
 ---
 
-## 8. Theme System
+## 9. Theme System
 
 ### Theme Behavior
 
@@ -358,7 +425,7 @@ When implementing features:
 
 ---
 
-## 9. Spacing & Layout
+## 10. Spacing & Layout
 
 ### Spacing Scale
 
@@ -391,7 +458,7 @@ When implementing features:
 
 ---
 
-## 10. Accessibility Standards
+## 11. Accessibility Standards
 
 ### WCAG Compliance
 
@@ -420,7 +487,7 @@ When implementing features:
 
 ---
 
-## 11. Design Tokens Reference
+## 12. Design Tokens Reference
 
 ### Quick Reference Table
 
@@ -490,6 +557,24 @@ A: Subtle gradients only using theme colors (`--background` to `--muted`). No ra
 
 **Q: How do I handle dark mode?**  
 A: Use CSS variables. They automatically switch in `.dark` class. Don't write manual dark mode logic.
+**Q: What makes our components different?**  
+A: The **Technical Geometric** aesthetic. Use asymmetric corners, bevels, and sharp angles. See Section 2: Visual Language.
+
+**Q: What corner treatment should I use?**  
+A: Mix treatments! Try `corner-tl-bevel corner-br-square` or `corner-bevel` with `corner-*-square`. Never uniform rounded corners.
+
+**Q: Can I use organic shapes?**  
+A: NO. Use sharp angles, geometric connectors, and beveled edges. Avoid curves, blobs, and fluid shapes.
+
+**Q: How do I make a new component fit the aesthetic?**  
+A: MUST use geometric patterns from Section 2. Reference existing components (Toggle, Badge, Card) for corner treatment examples.
+
+**Q: What border style should I use?**  
+A: Thin technical borders (1px). Use `rounded-xs` or `corner-bevel` for the sci-fi minimal look.
+
+**Q: Can I use rainbow gradients?**  
+A: NO. Use technical gradients only with theme colors (e.g., deep-space style with `--primary` and `--secondary`).
+
 
 ---
 
