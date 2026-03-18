@@ -1,6 +1,6 @@
 {
   "name": "local-components",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.0",
   "description": "A curated React component library designed for personal sites and portfolio pages",
   "type": "module",
   "sideEffects": false,
@@ -14,7 +14,7 @@
     "format:check": "oxfmt -c oxfmt.json --check src/",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "prepare": "husky",
+    "prepare": "bun .husky/install.mjs",
     "build:lib": "bun run build-lib.ts"
   },
   "exports": {
@@ -96,7 +96,10 @@
   },
   "files": [
     "dist",
-    "styles"
+    "styles/globals.css",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=20"

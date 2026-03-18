@@ -15,9 +15,7 @@ if (existsSync(outdir)) {
 }
 
 // Find all entry points
-const componentEntries = [...new Bun.Glob("src/components/*/index.ts").scanSync()].map((f) =>
-  path.resolve(f)
-)
+const componentEntries = [...new Bun.Glob("src/components/*/index.ts").scanSync()].map((f) => path.resolve(f))
 const libEntries = [...new Bun.Glob("src/lib/*/index.ts").scanSync()].map((f) => path.resolve(f))
 const allEntries = [...componentEntries, ...libEntries]
 
@@ -26,10 +24,7 @@ console.log(`📦 Found ${componentEntries.length} components and ${libEntries.l
 // Build each entry point individually to maintain structure
 const buildPromises = allEntries.map(async (entry) => {
   const relativePath = path.relative(process.cwd(), entry)
-  const outputDir = path.join(
-    outdir,
-    path.dirname(relativePath).replace("src/", "").replace("/index.ts", "")
-  )
+  const outputDir = path.join(outdir, path.dirname(relativePath).replace("src/", "").replace("/index.ts", ""))
 
   // Create output directory
   await mkdir(outputDir, { recursive: true })
@@ -41,7 +36,7 @@ const buildPromises = allEntries.map(async (entry) => {
     format: "esm",
     target: "browser",
     external: ["react", "react-dom", "react/jsx-runtime"],
-    minify: false,
+    minify: true,
   })
 
   if (!result.success) {
@@ -77,13 +72,10 @@ console.log(`\n✅ Library JS build completed in ${(end - start).toFixed(2)}ms\n
 console.log("📝 Generating TypeScript declarations with tsgo...")
 const tsgoStart = performance.now()
 
-const tsgo = Bun.spawn(
-  ["tsgo", "--project", "tsconfig.build.json"],
-  {
-    stdout: "inherit",
-    stderr: "inherit",
-  }
-)
+const tsgo = Bun.spawn(["tsgo", "--project", "tsconfig.build.json"], {
+  stdout: "inherit",
+  stderr: "inherit",
+})
 
 const tsgoExit = await tsgo.exited
 const tsgoEnd = performance.now()
