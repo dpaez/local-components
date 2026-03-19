@@ -18,45 +18,61 @@
     "build:lib": "bun run build-lib.ts"
   },
   "exports": {
-    "./components/button": {
-      "import": "./dist/components/button/index.js",
-      "types": "./dist/components/button/index.d.ts"
+    "./button": {
+      "import": "./dist/components/button/button.js",
+      "types": "./dist/components/button/button.d.ts"
     },
-    "./components/layout": {
-      "import": "./dist/components/layout/index.js",
-      "types": "./dist/components/layout/index.d.ts"
+    "./hero": {
+      "import": "./dist/components/hero/hero.js",
+      "types": "./dist/components/hero/hero.d.ts"
     },
-    "./components/toggle": {
-      "import": "./dist/components/toggle/index.js",
-      "types": "./dist/components/toggle/index.d.ts"
+    "./layout": {
+      "import": "./dist/components/layout/layout.js",
+      "types": "./dist/components/layout/layout.d.ts"
     },
-    "./components/typography": {
-      "import": "./dist/components/typography/index.js",
-      "types": "./dist/components/typography/index.d.ts"
+    "./toggle": {
+      "import": "./dist/components/toggle/toggle.js",
+      "types": "./dist/components/toggle/toggle.d.ts"
     },
-    "./components/card": {
-      "import": "./dist/components/card/index.js",
-      "types": "./dist/components/card/index.d.ts"
+    "./badge": {
+      "import": "./dist/components/badge/badge.js",
+      "types": "./dist/components/badge/badge.d.ts"
     },
-    "./components/section": {
-      "import": "./dist/components/section/index.js",
-      "types": "./dist/components/section/index.d.ts"
+    "./card": {
+      "import": "./dist/components/card/card.js",
+      "types": "./dist/components/card/card.d.ts"
     },
-    "./components/hero": {
-      "import": "./dist/components/hero/index.js",
-      "types": "./dist/components/hero/index.d.ts"
+    "./section": {
+      "import": "./dist/components/section/section.js",
+      "types": "./dist/components/section/section.d.ts"
     },
-    "./components/badge": {
-      "import": "./dist/components/badge/index.js",
-      "types": "./dist/components/badge/index.d.ts"
+    "./typography/heading": {
+      "import": "./dist/components/typography/heading.js",
+      "types": "./dist/components/typography/heading.d.ts"
     },
-    "./lib/theme-context": {
+    "./typography/text": {
+      "import": "./dist/components/typography/text.js",
+      "types": "./dist/components/typography/text.d.ts"
+    },
+    "./typography/lead": {
+      "import": "./dist/components/typography/lead.js",
+      "types": "./dist/components/typography/lead.d.ts"
+    },
+    "./typography/blockquote": {
+      "import": "./dist/components/typography/blockquote.js",
+      "types": "./dist/components/typography/blockquote.d.ts"
+    },
+    "./typography/code": {
+      "import": "./dist/components/typography/code.js",
+      "types": "./dist/components/typography/code.d.ts"
+    },
+    "./theme-context": {
       "import": "./dist/lib/theme-context/index.js",
       "types": "./dist/lib/theme-context/index.d.ts"
     },
-    "./lib/utils": {
-      "import": "./dist/lib/utils/index.js",
-      "types": "./dist/lib/utils/index.d.ts"
+    "./utils": {
+      "import": "./dist/lib/utils.js",
+      "types": "./dist/lib/utils.d.ts"
     },
     "./styles/globals.css": "./styles/globals.css"
   },

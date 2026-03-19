@@ -51,7 +51,7 @@ import "local-components/styles/globals.css"
 ### 2. Wrap Your App with Layout
 
 ```tsx
-import { Layout } from "local-components/components/layout"
+import { Layout } from "local-components/layout"
 
 function App() {
   return (
@@ -65,7 +65,7 @@ function App() {
 ### 3. Use Components
 
 ```tsx
-import { Hero } from "local-components/components/hero"
+import { Hero } from "local-components/hero"
 
 function HomePage() {
   return (
@@ -87,7 +87,7 @@ The library includes a theme system with automatic dark mode support.
 The `Layout` component provides the theme context for your app:
 
 ```tsx
-import { Layout } from "local-components/components/layout"
+import { Layout } from "local-components/layout"
 
 <Layout 
   defaultTheme="system"  // "light" | "dark" | "system"
@@ -105,7 +105,7 @@ import { Layout } from "local-components/components/layout"
 Add a theme toggle button anywhere in your app:
 
 ```tsx
-import { Toggle } from "local-components/components/toggle"
+import { Toggle } from "local-components/toggle"
 
 // Icon-only toggle (default)
 <Toggle variant="icon" />
@@ -141,7 +141,7 @@ The theme uses CSS variables defined in `globals.css`. Override them in your own
 ### Button
 
 ```tsx
-import { Button } from "local-components/components/button"
+import { Button } from "local-components/button"
 
 // Variants
 <Button variant="primary">Primary</Button>
@@ -165,7 +165,7 @@ import { Button } from "local-components/components/button"
 ### Hero
 
 ```tsx
-import { Hero } from "local-components/components/hero"
+import { Hero } from "local-components/hero"
 
 // Basic hero
 <Hero
@@ -193,8 +193,8 @@ import { Hero } from "local-components/components/hero"
 ### Card
 
 ```tsx
-import { Card } from "local-components/components/card"
-import { Button } from "local-components/components/button"
+import { Card } from "local-components/card"
+import { Button } from "local-components/button"
 
 // Basic card
 <Card title="Project Name" description="A brief description">
@@ -226,7 +226,7 @@ import { Button } from "local-components/components/button"
 ### Section
 
 ```tsx
-import { Section } from "local-components/components/section"
+import { Section } from "local-components/section"
 
 // Basic section
 <Section title="About" subtitle="Learn more about me">
@@ -246,7 +246,11 @@ import { Section } from "local-components/components/section"
 ### Typography
 
 ```tsx
-import { Heading, Text, Lead, Blockquote, Code } from "local-components/components/typography"
+import { Heading } from "local-components/typography/heading"
+import { Text } from "local-components/typography/text"
+import { Lead } from "local-components/typography/lead"
+import { Blockquote } from "local-components/typography/blockquote"
+import { Code } from "local-components/typography/code"
 
 // Heading
 <Heading size="2xl">Page Title</Heading>
@@ -279,16 +283,20 @@ Import individual components for optimal bundle size:
 
 ```tsx
 // Good - Tree-shakeable
-import { Button } from "local-components/components/button"
-import { Hero } from "local-components/components/hero"
-import { Card } from "local-components/components/card"
+import { Button } from "local-components/button"
+import { Hero } from "local-components/hero"
+import { Card } from "local-components/card"
 
-// Good - Typography sub-components
-import { Heading, Text } from "local-components/components/typography"
+// Good - Typography sub-components (tree-shakeable)
+import { Heading } from "local-components/typography/heading"
+import { Text } from "local-components/typography/text"
+import { Lead } from "local-components/typography/lead"
+import { Blockquote } from "local-components/typography/blockquote"
+import { Code } from "local-components/typography/code"
 
 // Utilities
-import { cn } from "local-components/lib/utils"
-import { ThemeProvider, useTheme } from "local-components/lib/theme-context"
+import { cn } from "local-components/utils"
+import { ThemeProvider, useTheme } from "local-components/theme-context"
 ```
 
 ## Tailwind Configuration
