@@ -18,9 +18,9 @@ if (existsSync(outdir)) {
 const componentEntries = [...new Bun.Glob("src/components/*/*.tsx").scanSync()]
   .map((f) => path.resolve(f))
   .filter((f) => !f.includes("stories.tsx"))
-const libEntries = [...new Bun.Glob("src/lib/*/index.ts").scanSync()].map((f) => path.resolve(f))
+const libEntries = [...new Bun.Glob("src/lib/**/*.ts*").scanSync()].map((f) => path.resolve(f))
 const allEntries = [...componentEntries, ...libEntries]
-console.log(allEntries)
+
 console.log(`📦 Found ${componentEntries.length} components and ${libEntries.length} lib modules`)
 
 // Build each entry point individually to maintain structure
@@ -37,9 +37,8 @@ const buildPromises = allEntries.map(async (entry) => {
     outdir: outputDir,
     format: "esm",
     target: "browser",
-    external: ["react", "react-dom", "react/jsx-runtime"],
+    external: ["react", "react-dom", "react/jsx-runtime", "class-variance-authority", "clsx", "tailwind-merge"],
     minify: true,
-    splitting: true,
     sourcemap: "linked",
   })
 
