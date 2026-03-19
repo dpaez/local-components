@@ -115,7 +115,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           )}
           {children && <CardContent>{children}</CardContent>}
           {footer && (
-            <CardFooter className='flex justify-between border-t-[1px] bg-accent/20 text-accent-foreground dark:border-t-foreground/50 '>
+            <CardFooter className='flex justify-between border-t bg-accent/20 text-accent-foreground dark:border-t-foreground/50 '>
               {footer}
             </CardFooter>
           )}

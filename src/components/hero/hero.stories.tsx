@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from '../button'
-import { Text, Heading } from '../typography'
-import { Hero } from './hero'
+import { Button } from '@/components/button/button'
+import { Hero } from '@/components/hero/hero'
+import { Heading } from '@/components/typography/heading'
+import { Text } from '@/components/typography/text'
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Hero',
