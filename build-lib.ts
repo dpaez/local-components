@@ -20,8 +20,7 @@ const componentEntries = [...new Bun.Glob("src/components/*/*.tsx").scanSync()]
   .map((f) => path.resolve(f))
   .filter((f) => !f.includes("stories.tsx"))
 const libEntries = [...new Bun.Glob("src/lib/**/*.ts*").scanSync()].map((f) => path.resolve(f))
-const cssEntries = [...new Bun.Glob("styles/*.css").scanSync()].map((f) => path.resolve(f))
-const allEntries = [...componentEntries, ...libEntries, ...cssEntries]
+const allEntries = [...componentEntries, ...libEntries]
 
 console.log(`📦 Found ${componentEntries.length} components and ${libEntries.length} lib modules`)
 

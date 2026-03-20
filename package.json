@@ -74,7 +74,7 @@
       "import": "./dist/lib/utils.js",
       "types": "./dist/lib/utils.d.ts"
     },
-    "./styles/globals.css": "./styles/globals.css"
+    "./styles/globals.css": "./dist/styles/globals.css"
   },
   "peerDependencies": {
     "react": "^19.2.4",
@@ -111,7 +111,6 @@
   },
   "files": [
     "dist",
-    "styles/globals.css",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"
