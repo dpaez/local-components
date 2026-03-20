@@ -1,7 +1,8 @@
 #!/usr/bin/env bun
 import { existsSync } from "fs"
-import { mkdir, rm, cp } from "fs/promises"
+import { mkdir, rm } from "fs/promises"
 import path from "path"
+import bunPluginTailwind from "bun-plugin-tailwind"
 
 console.log("\n🏗️  Building local-components library...\n")
 
@@ -19,7 +20,8 @@ const componentEntries = [...new Bun.Glob("src/components/*/*.tsx").scanSync()]
   .map((f) => path.resolve(f))
   .filter((f) => !f.includes("stories.tsx"))
 const libEntries = [...new Bun.Glob("src/lib/**/*.ts*").scanSync()].map((f) => path.resolve(f))
-const allEntries = [...componentEntries, ...libEntries]
+const cssEntries = [...new Bun.Glob("styles/*.css").scanSync()].map((f) => path.resolve(f))
+const allEntries = [...componentEntries, ...libEntries, ...cssEntries]
 
 console.log(`📦 Found ${componentEntries.length} components and ${libEntries.length} lib modules`)
 
@@ -34,6 +36,7 @@ const buildPromises = allEntries.map(async (entry) => {
   // Build with Bun
   const result = await Bun.build({
     entrypoints: [entry],
+    plugins: [bunPluginTailwind],
     outdir: outputDir,
     format: "esm",
     target: "browser",
@@ -57,15 +60,6 @@ const results = await Promise.all(buildPromises)
 if (!results.every(Boolean)) {
   console.error("\n❌ Build failed")
   process.exit(1)
-}
-
-// Copy styles
-const stylesSrc = path.join(process.cwd(), "styles", "globals.css")
-const stylesDest = path.join(outdir, "styles", "globals.css")
-if (existsSync(stylesSrc)) {
-  await mkdir(path.dirname(stylesDest), { recursive: true })
-  await cp(stylesSrc, stylesDest)
-  console.log("✅ Copied styles/globals.css")
 }
 
 const end = performance.now()

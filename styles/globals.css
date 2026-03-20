@@ -234,17 +234,6 @@
   }
 }
 
-/* CTA Button Animation */
-@keyframes border-gradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 .triangle::before {
   clip-path: polygon(1.9% 0%,  50% 40%,  100% 0%,  100% 100%, 50% 60%,  0% 101.8%);
 }
@@ -254,22 +243,6 @@
   border-bottom-right-radius: var(--radius);
   border: 3px solid var(--primary-700);
   text-box: cap alphabetic;
-}
-
-.mesh-background {
-  background:
-    radial-gradient(at 90.35560344827587% 83.125%, var(--secondary) 0px, transparent 50%),
-    radial-gradient(
-      at 19.342672413793103% 28.958333333333336%,
-      var(--secondary) 0px,
-      transparent 50%
-    ),
-    radial-gradient(
-      at 78.93318965517241% 18.541666666666668%,
-      var(--secondary) 0px,
-      transparent 50%
-    ),
-    var(--secondary);
 }
 
 .radial-gradient-background {
@@ -304,31 +277,3 @@
   z-index: 1;
 }
 
-.animate-border-gradient {
-  position: relative;
-  z-index: 1;
-}
-
-.animate-border-gradient::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: calc(var(--radius) + 2px);
-  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
-  background-size: 200% 100%;
-  background-position: 0% 50%;
-  animation: border-gradient 3s ease-out infinite;
-  transition: opacity 0.2s ease-out;
-  z-index: -1;
-  opacity: 0.8;
-}
-
-.animate-border-gradient:hover::before {
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-border-gradient::before {
-    animation: none;
-  }
-}
