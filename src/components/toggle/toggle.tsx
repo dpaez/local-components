@@ -1,9 +1,9 @@
 import { cva, type VariantProps } from 'class-variance-authority'
+import { useTheme } from 'local-components/theme-context'
 import { Sun, Moon } from 'lucide-react'
 import * as React from 'react'
 
 import { Switch } from '@/components/ui/switch'
-import { useTheme } from '@/lib/theme-context'
 import { cn } from '@/lib/utils'
 
 const toggleVariants = cva(

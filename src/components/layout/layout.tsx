@@ -1,6 +1,6 @@
+import { ThemeProvider, type Theme } from 'local-components/theme-context'
 import * as React from 'react'
 
-import { ThemeProvider, type Theme } from '@/lib/theme-context'
 import { cn } from '@/lib/utils'
 
 export interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {

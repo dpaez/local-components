@@ -23,7 +23,8 @@
 
     "paths": {
       "*": ["./*"],
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "local-components/theme-context": ["./src/lib/theme-context/index.tsx"]
     },
 
     // Some stricter flags (disabled by default)

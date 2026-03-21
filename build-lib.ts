@@ -40,7 +40,15 @@ const buildPromises = allEntries.map(async (entry) => {
     outdir: outputDir,
     format: "esm",
     target: "browser",
-    external: ["react", "react-dom", "react/jsx-runtime", "class-variance-authority", "clsx", "tailwind-merge"],
+    external: [
+      "react",
+      "react-dom",
+      "react/jsx-runtime",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge",
+      "local-components/theme-context",
+    ],
     minify: true,
     sourcemap: "linked",
   })
