@@ -45,6 +45,7 @@ export interface CardProps
   href?: string
   asChild?: boolean
   size?: 'sm' | 'default'
+  lineClamp?: number
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -60,17 +61,20 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       footer,
       href,
       children,
+      lineClamp = 8,
       size = 'default',
       ...props
     },
     ref,
   ) => {
     const isLink = !!href
+    const descriptionLineClamp = `line-clamp-${lineClamp}`
 
     const cardContent = (
       <ShadcnCard
         ref={ref}
         className={cn(
+          'flex flex-col justify-between',
           cardVariants({ variant }),
           'group relative w-full rounded-2xl py-4 corner-bl-square corner-br-bevel corner-tl-bevel corner-tr-square',
           isLink && 'cursor-pointer transition-opacity hover:opacity-90',
@@ -87,7 +91,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {meta && <CardMeta meta={meta} />}
         <div
           className={cn(
-            'flex w-full flex-col gap-4',
+            'flex w-full flex-col gap-4 justify-between',
             image && meta && 'pt-0 pb-4',
             meta && !image && 'py-4',
             footer && meta && 'pb-0',
@@ -109,7 +113,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
               {badge && <CardAction>{badge}</CardAction>}
               {title && <CardTitle>{title}</CardTitle>}
               {description && (
-                <CardDescription className='line-clamp-4'>{description}</CardDescription>
+                <CardDescription className={descriptionLineClamp}>{description}</CardDescription>
               )}
             </CardHeader>
           )}
