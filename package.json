@@ -1,6 +1,6 @@
 {
   "name": "local-components",
-  "version": "0.1.0-alpha.7",
+  "version": "0.1.0-alpha.8",
   "description": "A curated React component library designed for personal sites and portfolio pages",
   "type": "module",
   "sideEffects": false,
