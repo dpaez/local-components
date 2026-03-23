@@ -102,6 +102,7 @@ export const WithMetaNoImage: Story = {
         Learn More
       </Button>
     ),
+    descriptionClassName: 'line-clamp-8',
   },
 }
 
@@ -133,7 +134,7 @@ export const Complete: Story = {
   args: {
     title: 'Complete Card',
     description:
-      'A card with all features enabled. This is a longer description to test the card layout. And even some more text to test the layout. With some new features!',
+      'A card with all features enabled. This is a longer description to test the card layout. And even some more text to test the layout. With some new features! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
     meta: {
       label: '2026',
       value: 'March',

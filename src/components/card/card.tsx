@@ -1,5 +1,13 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import * as React from 'react'
+import {
+  type HTMLAttributes,
+  type ReactNode,
+  type RefObject,
+  useState,
+  useLayoutEffect,
+  useRef,
+  forwardRef,
+} from 'react'
 
 import CardMeta from '@/components/card/card-meta'
 import {
@@ -29,7 +37,7 @@ const cardVariants = cva('', {
 })
 
 export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {
+  extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {
   title?: string
   meta?: {
     label: string
@@ -40,15 +48,36 @@ export interface CardProps
     src: string
     alt: string
   }
-  badge?: React.ReactNode
-  footer?: React.ReactNode
+  badge?: ReactNode
+  footer?: ReactNode
   href?: string
   asChild?: boolean
   size?: 'sm' | 'default'
-  lineClamp?: number
+  descriptionClassName?: string
 }
 
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
+const useTruncatedElement = (ref: RefObject<HTMLDivElement>) => {
+  const [isTruncated, setIsTruncated] = useState(false)
+  const [isReadingMore, setIsReadingMore] = useState(false)
+
+  useLayoutEffect(() => {
+    const { offsetHeight, scrollHeight } = ref.current || {}
+
+    if (offsetHeight && scrollHeight && offsetHeight < scrollHeight) {
+      setIsTruncated(true)
+    } else {
+      setIsTruncated(false)
+    }
+  }, [ref])
+
+  return {
+    isTruncated,
+    isReadingMore,
+    setIsReadingMore,
+  }
+}
+
+const Card = forwardRef<HTMLDivElement, CardProps>(
   (
     {
       className,
@@ -61,14 +90,16 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       footer,
       href,
       children,
-      lineClamp = 8,
+      descriptionClassName,
       size = 'default',
       ...props
     },
     ref,
   ) => {
     const isLink = !!href
-    const descriptionLineClamp = `line-clamp-${lineClamp}`
+    const internalDescriptionClassname = cn('line-clamp-4 col-span-2 ', descriptionClassName)
+    const descriptionRef = useRef<HTMLDivElement>(null as unknown as HTMLDivElement)
+    const { isTruncated, isReadingMore, setIsReadingMore } = useTruncatedElement(descriptionRef)
 
     const cardContent = (
       <ShadcnCard
@@ -113,7 +144,32 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
               {badge && <CardAction>{badge}</CardAction>}
               {title && <CardTitle>{title}</CardTitle>}
               {description && (
-                <CardDescription className={descriptionLineClamp}>{description}</CardDescription>
+                <>
+                  <CardDescription
+                    ref={descriptionRef}
+                    className={cn(internalDescriptionClassname, isReadingMore && 'line-clamp-none')}
+                  >
+                    {description}
+                  </CardDescription>
+                  <div className='flex justify-start items-start'>
+                    {isTruncated && !isReadingMore && (
+                      <button
+                        className='text-xs hover:text-secondary'
+                        onClick={() => setIsReadingMore(true)}
+                      >
+                        Read more
+                      </button>
+                    )}
+                    {isTruncated && isReadingMore && (
+                      <button
+                        className='text-xs hover:text-secondary'
+                        onClick={() => setIsReadingMore(false)}
+                      >
+                        Read less
+                      </button>
+                    )}
+                  </div>
+                </>
               )}
             </CardHeader>
           )}
