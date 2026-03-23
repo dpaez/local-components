@@ -1,6 +1,6 @@
 {
   "name": "local-components",
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0-alpha.9",
   "description": "A curated React component library designed for personal sites and portfolio pages",
   "type": "module",
   "sideEffects": false,
@@ -15,6 +15,7 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "prepare": "bun .husky/install.mjs",
+    "prepublishOnly": "bun run build:lib",
     "build:lib": "NODE_ENV=production bun run build-lib.ts"
   },
   "exports": {
