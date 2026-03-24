@@ -25,7 +25,7 @@ const cardVariants = cva('', {
   variants: {
     variant: {
       default: 'dark:ring-primary-200/80',
-      bordered: 'border-2 border-primary ring-1 ring-primary/10',
+      bordered: 'border-2 border-primary ring-1 ring-primary/10 dark:border-primary-200/80',
       ghost: 'border-transparent bg-transparent shadow-none ring-transparent',
       elevated: 'shadow-lg hover:shadow-xl transition-shadow',
       square: 'rounded-none *:[img:first-child]:rounded-t-none',
@@ -37,13 +37,13 @@ const cardVariants = cva('', {
 })
 
 export interface CardProps
-  extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {
-  title?: string
+  extends Omit<HTMLAttributes<HTMLElement>, 'title'>, VariantProps<typeof cardVariants> {
+  title?: string | ReactNode
   meta?: {
     label: string
     value: string
   }
-  description?: string
+  description?: string | ReactNode
   image?: {
     src: string
     alt: string
@@ -97,7 +97,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     ref,
   ) => {
     const isLink = !!href
-    const internalDescriptionClassname = cn('line-clamp-4 col-span-2 ', descriptionClassName)
+    const internalDescriptionClassname = cn('col-span-2 line-clamp-4 ', descriptionClassName)
     const descriptionRef = useRef<HTMLDivElement>(null as unknown as HTMLDivElement)
     const { isTruncated, isReadingMore, setIsReadingMore } = useTruncatedElement(descriptionRef)
 
@@ -122,7 +122,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         {meta && <CardMeta meta={meta} />}
         <div
           className={cn(
-            'flex w-full flex-col gap-4 justify-between',
+            'flex w-full flex-col justify-between gap-4',
             image && meta && 'pt-0 pb-4',
             meta && !image && 'py-4',
             footer && meta && 'pb-0',
@@ -151,7 +151,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
                   >
                     {description}
                   </CardDescription>
-                  <div className='flex justify-start items-start'>
+                  <div className='flex items-start justify-start'>
                     {isTruncated && !isReadingMore && (
                       <button
                         className='text-xs hover:text-secondary'
