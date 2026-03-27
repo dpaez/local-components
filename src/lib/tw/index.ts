@@ -16,7 +16,7 @@ type Options = {
   darkSelector?: string
 }
 
-const oklchVar = (name: string) => `oklch(var(${name}) / <alpha-value>)`
+const varToCssVar = (name: string) => `var(${name})`
 
 export default plugin.withOptions<Options>(
   (opts) => {
@@ -94,71 +94,71 @@ export default plugin.withOptions<Options>(
       extend: {
         colors: {
           // semantic colors
-          background: oklchVar("--background"),
-          foreground: oklchVar("--foreground"),
-          card: oklchVar("--card"),
-          "card-foreground": oklchVar("--card-foreground"),
-          popover: oklchVar("--popover"),
-          "popover-foreground": oklchVar("--popover-foreground"),
+          background: varToCssVar("--background"),
+          foreground: varToCssVar("--foreground"),
+          card: varToCssVar("--card"),
+          "card-foreground": varToCssVar("--card-foreground"),
+          popover: varToCssVar("--popover"),
+          "popover-foreground": varToCssVar("--popover-foreground"),
 
           primary: {
-            DEFAULT: oklchVar("--primary"),
-            foreground: oklchVar("--primary-foreground"),
-            50: oklchVar("--primary-50"),
-            100: oklchVar("--primary-100"),
-            200: oklchVar("--primary-200"),
-            300: oklchVar("--primary-300"),
-            400: oklchVar("--primary-400"),
-            500: oklchVar("--primary-500"),
-            600: oklchVar("--primary-600"),
-            700: oklchVar("--primary-700"),
-            800: oklchVar("--primary-800"),
-            900: oklchVar("--primary-900"),
+            DEFAULT: varToCssVar("--primary"),
+            foreground: varToCssVar("--primary-foreground"),
+            50: varToCssVar("--primary-50"),
+            100: varToCssVar("--primary-100"),
+            200: varToCssVar("--primary-200"),
+            300: varToCssVar("--primary-300"),
+            400: varToCssVar("--primary-400"),
+            500: varToCssVar("--primary-500"),
+            600: varToCssVar("--primary-600"),
+            700: varToCssVar("--primary-700"),
+            800: varToCssVar("--primary-800"),
+            900: varToCssVar("--primary-900"),
           },
 
           secondary: {
-            DEFAULT: oklchVar("--secondary"),
-            foreground: oklchVar("--secondary-foreground"),
-            50: oklchVar("--secondary-50"),
-            100: oklchVar("--secondary-100"),
-            200: oklchVar("--secondary-200"),
-            300: oklchVar("--secondary-300"),
-            400: oklchVar("--secondary-400"),
-            500: oklchVar("--secondary-500"),
-            600: oklchVar("--secondary-600"),
-            700: oklchVar("--secondary-700"),
-            800: oklchVar("--secondary-800"),
-            900: oklchVar("--secondary-900"),
+            DEFAULT: varToCssVar("--secondary"),
+            foreground: varToCssVar("--secondary-foreground"),
+            50: varToCssVar("--secondary-50"),
+            100: varToCssVar("--secondary-100"),
+            200: varToCssVar("--secondary-200"),
+            300: varToCssVar("--secondary-300"),
+            400: varToCssVar("--secondary-400"),
+            500: varToCssVar("--secondary-500"),
+            600: varToCssVar("--secondary-600"),
+            700: varToCssVar("--secondary-700"),
+            800: varToCssVar("--secondary-800"),
+            900: varToCssVar("--secondary-900"),
           },
 
-          muted: oklchVar("--muted"),
-          "muted-foreground": oklchVar("--muted-foreground"),
-          accent: oklchVar("--accent"),
-          "accent-foreground": oklchVar("--accent-foreground"),
+          muted: varToCssVar("--muted"),
+          "muted-foreground": varToCssVar("--muted-foreground"),
+          accent: varToCssVar("--accent"),
+          "accent-foreground": varToCssVar("--accent-foreground"),
 
-          destructive: oklchVar("--destructive"),
-          "destructive-foreground": oklchVar("--destructive-foreground"),
+          destructive: varToCssVar("--destructive"),
+          "destructive-foreground": varToCssVar("--destructive-foreground"),
 
-          border: oklchVar("--border"),
-          input: oklchVar("--input"),
-          ring: oklchVar("--ring"),
+          border: varToCssVar("--border"),
+          input: varToCssVar("--input"),
+          ring: varToCssVar("--ring"),
 
           // charts
-          "chart-1": oklchVar("--chart-1"),
-          "chart-2": oklchVar("--chart-2"),
-          "chart-3": oklchVar("--chart-3"),
-          "chart-4": oklchVar("--chart-4"),
-          "chart-5": oklchVar("--chart-5"),
+          "chart-1": varToCssVar("--chart-1"),
+          "chart-2": varToCssVar("--chart-2"),
+          "chart-3": varToCssVar("--chart-3"),
+          "chart-4": varToCssVar("--chart-4"),
+          "chart-5": varToCssVar("--chart-5"),
 
           // sidebar
-          sidebar: oklchVar("--sidebar"),
-          "sidebar-foreground": oklchVar("--sidebar-foreground"),
-          "sidebar-primary": oklchVar("--sidebar-primary"),
-          "sidebar-primary-foreground": oklchVar("--sidebar-primary-foreground"),
-          "sidebar-accent": oklchVar("--sidebar-accent"),
-          "sidebar-accent-foreground": oklchVar("--sidebar-accent-foreground"),
-          "sidebar-border": oklchVar("--sidebar-border"),
-          "sidebar-ring": oklchVar("--sidebar-ring"),
+          sidebar: varToCssVar("--sidebar"),
+          "sidebar-foreground": varToCssVar("--sidebar-foreground"),
+          "sidebar-primary": varToCssVar("--sidebar-primary"),
+          "sidebar-primary-foreground": varToCssVar("--sidebar-primary-foreground"),
+          "sidebar-accent": varToCssVar("--sidebar-accent"),
+          "sidebar-accent-foreground": varToCssVar("--sidebar-accent-foreground"),
+          "sidebar-border": varToCssVar("--sidebar-border"),
+          "sidebar-ring": varToCssVar("--sidebar-ring"),
         },
 
         // map Tailwind radii to your radius token
