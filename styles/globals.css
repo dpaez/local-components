@@ -1,4 +1,4 @@
 @import 'tailwindcss' source('../src/');
 @plugin '@toolwind/corner-shape';
 
-@import './tokens.css';
+@import './index.css';

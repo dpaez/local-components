@@ -40,13 +40,64 @@ bun install
 
 ## Quick Start
 
-### 1. Setup Tailwind CSS
+### 1. Setup styles (Tailwind vs non-Tailwind)
 
-Import the required styles in your app's entry point:
+This library supports two integration modes:
 
-```tsx
-import "local-components/styles/globals.css"
+
+#### Tailwind app - Plugin (recommended)
+
+If your app already uses Tailwind, you should **not** import `globals.css` (it includes Tailwind initialization).
+Instead, import the library `index.css` into your app’s main Tailwind CSS entry.
+
+
+```css
+@import "tailwindcss";
+@plugin "local-components/tw";
 ```
+
+You can configure some options like this:
+
+```css
+@plugin "local-components/tw" {
+  root: "#app";
+  darkSelector: "[data-theme='dark']";
+}
+```
+
+#### Add the corner-shape plugin section (Tailwind apps only)
+
+```bash
+npm i @toolwind/corner-shape
+```
+
+Then in your app CSS (the same file where you import Tailwind):
+
+```css
+@plugin "@toolwind/corner-shape";
+```
+
+##### Augmenting/overriding the theme
+
+You can override or extend the theme by adding your own `@theme inline { ... }` after importing the library theme: You can override or extend the theme by adding your own @theme inline { ... } after importing the library theme:
+
+```css
+@theme inline {
+  --color-primary: oklch(0.62 0.2 255);
+  --color-brand: oklch(0.7 0.18 160);
+}
+```
+
+#### Non-Tailwind app
+
+If your app does not use Tailwind, import the full stylesheet:
+
+```css
+@import "local-components/styles/globals.css";
+```
+
+`globals.css` includes Tailwind initialization, the library theme and the plugin.
+
 
 ### 2. Wrap Your App with Layout
 
