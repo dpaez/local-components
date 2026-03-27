@@ -88,6 +88,14 @@ export const WithMeta: Story = {
   },
 }
 
+export const Hoverable: Story = {
+  args: {
+    title: 'Hoverable Card',
+    description: 'This card has a hoverable border.',
+    variant: 'hoverable',
+  },
+}
+
 export const WithMetaNoImage: Story = {
   args: {
     title: 'Square Card with Meta',
@@ -149,6 +157,6 @@ export const Complete: Story = {
         Learn More
       </Button>
     ),
-    variant: 'default',
+    variant: 'hoverable',
   },
 }

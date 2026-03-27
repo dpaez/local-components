@@ -24,10 +24,12 @@ import { cn } from '@/lib/utils'
 const cardVariants = cva('', {
   variants: {
     variant: {
-      default: 'dark:ring-primary-200/80',
+      default: 'dark:ring-primary-200/80 ',
       bordered: 'border-2 border-primary ring-1 ring-primary/10 dark:border-primary-200/80',
       ghost: 'border-transparent bg-transparent shadow-none ring-transparent',
       elevated: 'shadow-lg hover:shadow-xl transition-shadow',
+      hoverable:
+        'ring-0 rounded-r-md border-[1px] border-foreground/10 shadow-[6px_6px_0px_0px_var(--secondary)] hover:shadow-none transition-all duration-150 ease-[cubic-bezier(0.85,0.09,0.15,0.91)] hover:translate-1',
       square: 'rounded-none *:[img:first-child]:rounded-t-none',
     },
   },

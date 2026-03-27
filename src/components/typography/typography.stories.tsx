@@ -34,7 +34,10 @@ export const TextStory: StoryObj<typeof Text> = {
   render: () => (
     <div className='space-y-4'>
       <Text size='lg'>Large text for important content.</Text>
-      <Text>Default text for body content.</Text>
+      <Text>
+        Patterns for creating effective AI agent skills that capture coding conventions and best
+        practices. Contains 6 rules covering structure, content, and writing style.
+      </Text>
       <Text size='sm'>Small text for secondary content.</Text>
       <Text size='xs'>Extra small text for fine print.</Text>
       <Text color='muted'>Muted text for less emphasis.</Text>

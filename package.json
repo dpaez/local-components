@@ -75,7 +75,8 @@
       "import": "./dist/lib/utils.js",
       "types": "./dist/lib/utils.d.ts"
     },
-    "./styles/globals.css": "./dist/styles/globals.css"
+    "./styles/globals.css": "./dist/styles/globals.css",
+    "./styles/tokens.css": "./dist/styles/tokens.css"
   },
   "peerDependencies": {
     "react": "^19.2.4",
