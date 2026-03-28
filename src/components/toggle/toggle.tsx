@@ -77,7 +77,7 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
             onCheckedChange={handleToggle}
             className={cn(
               className,
-              'rounded-sm corner-bevel corner-bl-square corner-tr-square *:rounded-sm *:corner-bevel *:corner-bl-square *:corner-tr-square',
+              'rounded-sm corner-bevel corner-bl-square corner-tr-square *:rounded-sm *:corner-bevel *:corner-bl-square *:corner-tr-square *:dark:bg-accent bg-(--primary-foreground)',
             )}
             ref={ref as React.Ref<HTMLButtonElement>}
             {...props}

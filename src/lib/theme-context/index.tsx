@@ -44,12 +44,14 @@ export function ThemeProvider({
 
     try {
       const stored = localStorage.getItem(storageKey)
-      if (stored && (stored === 'light' || stored === 'dark' || stored === 'system')) {
+      if (stored === 'light' || stored === 'dark') {
         setThemeState(stored as Theme)
-      } else {
+      } else if (stored === 'system') {
         // Check system preference
         const systemTheme = getSystemTheme()
-        setThemeState(systemTheme === 'dark' ? 'system' : 'light')
+        setThemeState(systemTheme)
+      } else {
+        setThemeState(defaultTheme)
       }
     } catch {
       // localStorage not available (SSR or disabled)
@@ -72,6 +74,8 @@ export function ThemeProvider({
   }, [theme, mounted])
 
   useEffect(() => {
+    if (!mounted || theme !== 'system') return
+
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     const handleChange = (e: MediaQueryListEvent) => {
