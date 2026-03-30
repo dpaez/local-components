@@ -44,14 +44,18 @@ export function ThemeProvider({
 
     try {
       const stored = localStorage.getItem(storageKey)
+
       if (stored === 'light' || stored === 'dark') {
         setThemeState(stored as Theme)
-      } else if (stored === 'system') {
+      } else {
         // Check system preference
         const systemTheme = getSystemTheme()
-        setThemeState(systemTheme)
-      } else {
-        setThemeState(defaultTheme)
+
+        if (['light', 'dark'].includes(systemTheme)) {
+          setThemeState(systemTheme)
+        } else {
+          setThemeState(defaultTheme)
+        }
       }
     } catch {
       // localStorage not available (SSR or disabled)
